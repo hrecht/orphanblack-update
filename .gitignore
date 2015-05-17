@@ -3,3 +3,4 @@ offline/
 *.Rproj.user
 fonts/
 font-awesome/
+*.Rhistory
