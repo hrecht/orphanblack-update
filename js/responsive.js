@@ -1,7 +1,7 @@
 var mobile_threshold = 600;
 
 var $gantt = $('#gantt');
-var gantt_data_url = "Data/obtimes.csv";
+var gantt_data_url = "data/obtimes.csv";
 var gantt_aspect_width = 1;
 var gantt_aspect_height = 1.05;
 
@@ -11,12 +11,12 @@ var overlap_aspect_width = 2;
 var overlap_aspect_height = 1.1;
 
 var $linechart = $('#linechart');
-var linechart_data_url = "Data/totaltime.csv";
+var linechart_data_url = "data/totaltime.csv";
 var linechart_aspect_width = 5;
 var linechart_aspect_height = 2;
 
 var $barcharts = $('#barcharts');
-var barcharts_data_url = "Data/chartimebyep.csv";
+var barcharts_data_url = "data/chartimebyep.csv";
 var barcharts_aspect_width = 5;
 var barcharts_aspect_height = 4;
 
