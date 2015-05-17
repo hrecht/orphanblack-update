@@ -1,0 +1,154 @@
+.axis {
+    font-size: 12px;
+}
+
+.axis path {
+    display: none;
+}
+
+.axis line {
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.axis .minor line {
+    stroke: #999;
+    stroke-dasharray: 2, 2;
+}
+
+.bar:hover {
+    fill: #000;
+    opacity: 1;
+}
+
+.overlapbar.selected {
+    fill: #000;
+    opacity: 1;
+}
+
+.legendbar {
+    fill: #1B3536;
+    opacity: 0.4;
+}
+.moblegendbar {
+    fill: #1B3536;
+}
+
+#gantt {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+#gantt img {
+    max-width: 100%;
+    height: auto;
+}
+
+#overlap {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+#overlap img {
+    max-width: 100%;
+    height: auto;
+}
+
+#linechart {
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 40px;
+}
+
+#linechart img {
+    max-width: 100%;
+    height: auto;
+}
+
+#barcharts {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+#barcharts img {
+    max-width: 100%;
+    height: auto;
+}
+
+.chartline {
+    fill: none;
+    stroke: #000;
+    stroke-width: 1.5px;
+}
+
+.graph {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.chartTitle {
+    font-size: 20px;
+}
+
+.seasonTitle {
+    font-size: 12px;
+    text-align: center;
+}
+
+.seasonTitle2 {
+    font-size: 16px;
+    text-align: center;
+}
+
+.my {
+    margin-bottom: 20px;
+}
+
+.legend {
+    fill: #fff;
+    font-size: 13px;
+    text-align: center;
+}
+
+text.legend{
+    pointer-events: none;
+}
+
+.legendmob {
+    fill: #fff;
+    font-size: 11px;
+    text-align: center;
+}
+
+.labelline {
+    stroke: #000;
+    stroke-width: 2;
+    fill: none;
+}
+
+.d3-tip {
+    line-height: 1;
+    font-size: 12px;
+    padding: 10px;
+    background: rgba(0, 0, 0, .6);
+    color: #fff;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.6);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
