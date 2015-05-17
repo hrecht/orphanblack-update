@@ -26,6 +26,8 @@ function ganttdraw() {
     var formatMinutes = d3.format('.1f');
     var formatAxis = d3.format('.0f');
 
+    var seasons = [0, 1, 2];
+
     var y = d3.scale.ordinal()
         .rangeRoundBands([0, height], .1);
 
@@ -35,7 +37,7 @@ function ganttdraw() {
 
     var barcolor = d3.scale.threshold()
         .domain([0.5])
-        .range(["#1B3536","#FF99CC"]);
+        .range(["#1B3536", "#FF99CC"]);
 
     var xAxis = d3.svg.axis()
         .scale(x)
@@ -86,36 +88,20 @@ function ganttdraw() {
         .classed("minor", true);
 
     //Season labels for y axis
-    svg.append("g")
+    var seasonlab = svg.selectAll("g.seasonl")
+        .data(seasons)
+        .enter().append("g");
+    
+    seasonlab.append("g")
         .append("text")
         .attr("class", "seasonTitle")
         .attr("x", -5)
-        .attr("y", function (d) {
-            return y(5) + 8;
+        .attr("y", function (d, i) {
+            return y(10 * i + 5) + 8;
         })
-        .text(function (d) {
-            return "Season 1";
-        });
-    svg.append("g")
-        .append("text")
-        .attr("class", "seasonTitle")
-        .attr("x", -5)
-        .attr("y", function (d) {
-            return y(15) + 8;
+        .text(function (d, i) {
+            return "Season " + (1 + seasons[i]);
         })
-        .text(function (d) {
-            return "Season 2";
-        });
-    svg.append("g")
-        .append("text")
-        .attr("class", "seasonTitle")
-        .attr("x", -5)
-        .attr("y", function (d) {
-            return y(24) + 8;
-        })
-        .text(function (d) {
-            return "Season 3";
-        });
 
     svg.append("g")
         .append("line")

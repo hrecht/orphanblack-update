@@ -99,21 +99,22 @@
                     <div class="clearfix"></div>
                     <p>Orphan Black, a scifi thriller from BBC America and Space, stars Canadian actor Tatiana Maslany as several clones, products of a secret military experiment. After the first season, a slew of reviews reported that she must be 99 percent of the show. I decided to test that claim. Prior to Orphan Black's third season, I analyzed lead actress Tatiana Maslany's time on screen in the <a href="http://hrecht.github.io/orphanblack/">first two seasons</a>. The goal was simple: to determine just how much Tatiana Maslany was in each episode. This page, expanding upon that analysis, will be updated weekly with the latest data.</p>
                     <p>Five of the clones have appeared in multiple episodes. Lead character Sarah, who returns home to reunite with her daughter, is the only clone to appear in all twenty. She is on screen nearly every minute of the first three episodes, often impersonating police officer Beth Childs, who makes an all-too-brief appearance in episode one. Sarah meets Canadian soccer mom Alison, American grad student Cosima, and Ukranian assassin Helena early in the first season. Fellow Brit "proclone" Rachel makes her entrance in episode nine.</p>
-                    <p>Any one of these characters would be a major role for an actor. Sarah is on screen the most, appearing in every episode and about half of the show's time overall. Drawn separately, the women's screen time seem like that of an average lead and four supporting actresses.</p>
+                    <div id="table">
+                    </div>
+                    <p class="small">See <a href="#about">below</a> for explanation of Jennifer's exclusion from this data.</p>
+                    <p>Any one of these characters would be a major role for an actor. Sarah is on screen the most, appearing in every episode and about half of the show's time overall. Drawn separately, the main women's screen time seem like that of an average lead and four supporting actresses.</p>
                     <div id="gantt"><img src="img/ganttfallback.png" alt="[Character appearances by episode]" />
                     </div>
                     <p class="lead">But Orphan Black is no average show. Add all of her characters and there is a Tatiana Maslany (or two - or three, or four) in nearly every minute of the series.</p>
                     <h4>Three seasons of overlapping Tatiana Maslanys</h4>
                     <div id="overlap"><img src="img/overlap.gif" alt="[20 episodes of overlapping clones]" />
                     </div>
-
                     <p>So, just how much Tatiana Maslany is that? We could look at the empty spaces above, the few scenes in which she doesn't appear. But that wouldn't account for her many multi-clone scenes, in which several versions of herself appear at once. A better measure would be to look at her screen time, clone plus clone plus clone, in each episode.</p>
                     <div id="barcharts" class="graph"><img src="img/barchartsfallback.png" alt="[Character time by episode]" />
                     </div>
-                    <p class="small">Note: All clones, including single-episode characters, are included in last chart.</p>
+                    <p class="small">All clones, including single-episode characters, are included in last chart.</p>
                     <p>Episode three is 41.9 minutes long. Her characters appear in that episode for a total of 54.3 minutes. That's right, "Variations Under Nature" has 129.7 percent Tatiana Maslany.</i>
                     </p>
-                    <h4>Orphan Black: percent Tatiana Maslany by episode</h4>
                     <div id="linechart"><img src="img/linechartfallback.png" alt="[% of Tatiana Maslany by episode]" />
                     </div>
                 </div>
@@ -141,16 +142,17 @@
     </footer>
 
     <!-- scripts -->
-    <script src="js/jquery.js"></script>
-    <script src="js/modernizr.svg.min.js"></script>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.min.js"></script>
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/modernizr.svg.min.js"></script>
+    <script src="js/lib/d3.v3.min.js"></script>
+    <script src="js/lib/d3.tip.min.js"></script>
     <script type="text/javascript" src="js/responsive.js"></script>
     <script type="text/javascript" src="js/obtimes.js"></script>
     <script type="text/javascript" src="js/barcharts.js"></script>
     <script type="text/javascript" src="js/linechart.js"></script>
     <script type="text/javascript" src="js/ganttoverlap.js"></script>
     <script type="text/javascript" src="js/ganttcharacters.js"></script>
+    <script type="text/javascript" src="js/table.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>

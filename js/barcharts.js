@@ -21,6 +21,8 @@ function bardraw() {
 
     var formatMinutes = d3.format('.1f');
     var formatAxis = d3.format('.0f');
+    
+    var seasons = [0, 1, 2];
 
     var x = d3.scale.ordinal()
         .rangeRoundBands([0, width], .1);
@@ -98,35 +100,19 @@ function bardraw() {
         .attr("dy", -4);
 
     //Season labels for x axis
-    svg.append("g")
+    var seasonlab = svg.selectAll("g.seasonl")
+        .data(seasons)
+        .enter().append("g");
+    
+    seasonlab.append("g")
         .append("text")
         .attr("class", "seasonTitle")
-        .attr("x", function (d) {
-            return x(4);
-        })
         .attr("y", height - padding - 10)
-        .text(function (d) {
-            return "Season 1";
+        .attr("x", function (d, i) {
+            return x(10 * i + 3);
         })
-    svg.append("g")
-        .append("text")
-        .attr("class", "seasonTitle")
-        .attr("x", function (d) {
-            return x(14);
-        })
-        .attr("y", height - padding - 10)
-        .text(function (d) {
-            return "Season 2";
-        })
-    svg.append("g")
-        .append("text")
-        .attr("class", "seasonTitle")
-        .attr("x", function (d) {
-            return x(22);
-        })
-        .attr("y", height - padding - 10)
-        .text(function (d) {
-            return "Season 3";
+        .text(function (d, i) {
+            return "Season " + (1 + seasons[i]);
         })
 
     //Title for each chart

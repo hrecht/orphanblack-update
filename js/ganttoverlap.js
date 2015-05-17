@@ -26,6 +26,8 @@ function overlapbuild(id) {
     var formatMinutes = d3.format('.1f');
     var formatAxis = d3.format('.0f');
 
+    var seasons = [0, 1, 2];
+
     var svg = d3.select(id).append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -164,40 +166,27 @@ function overlapbuild(id) {
             });
 
     } else {
+
         var gy = svg.append("g")
             .attr("class", "y axis")
             .attr("transform", "translate(" + padding + ",0)")
             .call(yAxis);
-        svg.append("g")
+
+        var seasonlab = svg.selectAll("g.seasonl")
+            .data(seasons)
+            .enter().append("g");
+
+        seasonlab.append("g")
             .append("text")
             .attr("class", "seasonTitle2")
             .attr("x", -40)
-            .attr("y", function (d) {
-                return y(6) + 6;
+            .attr("y", function (d, i) {
+                return y(10 * i + 5) + 15;
             })
-            .text(function (d) {
-                return "Season 1";
-            });
-        svg.append("g")
-            .append("text")
-            .attr("class", "seasonTitle2")
-            .attr("x", -40)
-            .attr("y", function (d) {
-                return y(16) + 6;
+            .text(function (d, i) {
+                return "Season " + (1 + seasons[i]);
             })
-            .text(function (d) {
-                return "Season 2";
-            });
-        svg.append("g")
-            .append("text")
-            .attr("class", "seasonTitle2")
-            .attr("x", -40)
-            .attr("y", function (d) {
-                return y(24) + 6;
-            })
-            .text(function (d) {
-                return "Season 3";
-            });
+
         svg.append("g")
             .append("text")
             .attr("class", "seasonTitle")

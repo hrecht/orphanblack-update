@@ -20,6 +20,7 @@
     fill: #000;
     opacity: 1;
 }
+
 .barchart:hover {
     fill: blue;
 }
@@ -33,6 +34,7 @@
     fill: #1B3536;
     opacity: 0.4;
 }
+
 .moblegendbar {
     fill: #1B3536;
 }
@@ -59,7 +61,6 @@
 
 #linechart {
     width: 100%;
-    max-width: 700px;
     margin-bottom: 40px;
 }
 
@@ -81,7 +82,7 @@
 .chartline {
     fill: none;
     stroke: #000;
-    stroke-width: 1.5px;
+    stroke-width: 2px;
 }
 
 .graph {
@@ -103,17 +104,13 @@
     text-align: center;
 }
 
-.my {
-    margin-bottom: 20px;
-}
-
 .legend {
     fill: #fff;
     font-size: 13px;
     text-align: center;
 }
 
-text.legend{
+text.legend {
     pointer-events: none;
 }
 
@@ -127,6 +124,12 @@ text.legend{
     stroke: #000;
     stroke-width: 2;
     fill: none;
+}
+.seasonline {
+    stroke: #000;
+    stroke-width: 1;
+    fill: none;
+        stroke-dasharray: 2, 2;
 }
 
 .d3-tip {
@@ -154,4 +157,27 @@ text.legend{
     margin: -1px 0 0 0;
     top: 100%;
     left: 0;
+}
+
+#table {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+th, td {
+    text-align: left;
+}
+
+th,
+td {
+    padding: 0 3em 0.5ex 0;
+}
+
+th.center,
+td.center {
+    text-align: center;
+}
+
+th.num,
+td.num {
+    text-align: right;
 }

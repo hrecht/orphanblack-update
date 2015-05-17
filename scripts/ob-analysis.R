@@ -20,19 +20,26 @@ ob<-mutate(ob, cloneswap = 0 %>%
 
 #Collapse by episode and character
 ctimebyep <- summaryBy(tottime ~ episode + character, FUN=c(sum), data=ob)
-ctimebyep$minutes = ctimebyep$tottime/60
 
-#Get total by episode, append
 tattime <- summaryBy(tottime ~ episode, FUN=c(sum), data=ob)
-tattime$minutes= tattime$tottime/60
 tattime$character <- c("All Tatiana Maslany Clones")
 ctimebyep <- rbind(ctimebyep,tattime)
+ctimebyep <- rename(ctimebyep, seconds = tottime.sum)
+ctimebyep$minutes = ctimebyep$seconds/60
 
 write.csv(ctimebyep, file="data/chartimebyep.csv", row.names=FALSE)
 
-#Get total screen time by clone
-chartime <- summaryBy(tottime ~ character, FUN=c(sum), data=ob)
-chartime$minutes = chartime$tottime/60
+#Data for table: total time by character, # of episodes, cloneswaps
+ctimebyep<-mutate(ctimebyep, p = 1)
+chartime <- summaryBy(minutes + p ~ character, FUN=c(sum), data=ctimebyep)
+chartime <- rename(chartime, totalminutes = minutes.sum, episodesin = p.sum)
+chartime <- arrange(chartime, desc(totalminutes))
+chartime<-mutate(chartime, cloneswaps = 
+                   ifelse(character=="Sarah", "Beth, Katja, Alison, Cosima, Rachel",
+                          ifelse(character=="Alison" | character=="Rachel", "Sarah",
+                                 ifelse(character=="Helena", "Sarah as Beth, Sarah", ""              
+                    ))))
+write.csv(chartime, file="data/charactertable.csv", row.names=FALSE)
 
 #Get total screen time by clone & cloneswap
 cloneswap <- summaryBy(tottime ~ character + charas, FUN=c(sum), data=ob)
