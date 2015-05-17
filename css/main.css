@@ -20,6 +20,9 @@
     fill: #000;
     opacity: 1;
 }
+.barchart:hover {
+    fill: blue;
+}
 
 .overlapbar.selected {
     fill: #000;

@@ -145,7 +145,7 @@ function bardraw() {
         })
         .enter()
         .append("rect")
-        .attr("class", "bar")
+        .attr("class", "barchart")
         .attr("x", function (d) {
             return x(d.episode);
         })

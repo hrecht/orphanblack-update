@@ -48,7 +48,7 @@ function linedraw() {
         d.tmaspct = +d.tmaspct;
     });
 
-    x.domain([1, 24]);
+    x.domain([1, 25]);
     y.domain([0, 1.3]);
 
     var gy = svg.append("g")

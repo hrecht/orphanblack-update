@@ -1,14 +1,14 @@
 var mobile_threshold = 600;
 
 var $gantt = $('#gantt');
-var gantt_data_url = "Data/OBAllEps.csv";
+var gantt_data_url = "Data/obtimes.csv";
 var gantt_aspect_width = 1;
 var gantt_aspect_height = 1;
 
 var $overlap = $('#overlap');
 var data;
 var overlap_aspect_width = 2;
-var overlap_aspect_height = 1;
+var overlap_aspect_height = 1.1;
 
 var $linechart = $('#linechart');
 var linechart_data_url = "Data/totaltime.csv";

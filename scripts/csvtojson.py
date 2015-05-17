@@ -6,7 +6,7 @@ import json
 
 output = { 'episodes': [] }
 
-with open('/Users/Hannah/Documents/DataVizProjects/OrphanBlack/Data/OBAllEps.csv') as csv_file:
+with open('/Users/Hannah/Documents/Github/orphanblack-update/data/obtimes.csv') as csv_file:
     for state in csv.DictReader(csv_file):
         output['episodes'].append({
                         'episode': int(state['episode']),
@@ -16,5 +16,5 @@ with open('/Users/Hannah/Documents/DataVizProjects/OrphanBlack/Data/OBAllEps.csv
    })
 
 output_json = json.dumps(output,allow_nan=True)
-with open('/Users/Hannah/Documents/DataVizProjects/OrphanBlack/Data/obtimes.json', 'w') as f:
+with open('/Users/Hannah/Documents/Github/orphanblack-update/data/obtimes.json', 'w') as f:
        json.dump(output, f)

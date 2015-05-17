@@ -11,13 +11,12 @@ require(ggplot2)
 require(extrafont)
 require(scales)
 
-ob<-read.csv("data/OBAllEps.csv",header=T, stringsAsFactors=F)
+ob<-read.csv("data/obtimes.csv",header=T, stringsAsFactors=F)
 totaltime<-read.csv("data/totaltime.csv",header=T, stringsAsFactors=F)
 
 #Add a cloneswap variable
 ob<-mutate(ob, cloneswap = 0 %>%
              ifelse(character != charas, 1,.))
-write.csv(ob, file="data/OBAllEps.csv", row.names=FALSE)
 
 #Collapse by episode and character
 ctimebyep <- summaryBy(tottime ~ episode + character, FUN=c(sum), data=ob)
@@ -58,7 +57,7 @@ barcharts<-ggplot(mainchars, aes(x = factor(episode), y = minutes)) +
   ggtitle("Character Time by Episode")
 barcharts
 
-png(filename = "charts/barcharts_24ep.png", width=1800, height=1000, res=200)
+png(filename = "offline/charts/barcharts_25ep.png", width=1800, height=1000, res=200)
 barcharts
 dev.off()
 
@@ -78,6 +77,6 @@ linechart <- ggplot(totaltime, aes(x=episode, y=tmaspct, group=1)) +
   ggtitle("Percent Tatiana Maslany by Episode")
 linechart
 
-png(filename = "charts/tmaspercent_24ep.png", width=1800, height=1000, res=200)
+png(filename = "offline/charts/tmaspercent_25ep.png", width=1800, height=1000, res=200)
 linechart
 dev.off()
