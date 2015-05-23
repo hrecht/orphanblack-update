@@ -6,6 +6,7 @@
 require(doBy)
 require(dplyr)
 require(tidyr)
+require(jsonlite)
 
 require(ggplot2)
 require(extrafont)
@@ -17,6 +18,10 @@ totaltime<-read.csv("data/totaltime.csv",header=T, stringsAsFactors=F)
 #Add a cloneswap variable
 ob<-mutate(ob, cloneswap = 0 %>%
              ifelse(character != charas, 1,.))
+
+objs<-select(ob,episode,startmin,stopmin,character,charas,cloneswap)
+objson<-toJSON(ob, digits=6)
+write(objson, "data/objson.json")
 
 #Collapse by episode and character
 ctimebyep <- summaryBy(tottime ~ episode + character, FUN=c(sum), data=ob)

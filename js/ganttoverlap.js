@@ -1,7 +1,5 @@
 function overlapbuild(id) {
 
-    var data = json;
-
     var margin = {
             top: 50,
             right: 20,
@@ -10,7 +8,7 @@ function overlapbuild(id) {
         },
         numticks = 9,
         padding = 50;
-    if ($gantt.width() < mobile_threshold) {
+    if ($overlap.width() < mobile_threshold) {
         overlap_aspect_width = 1;
         overlap_aspect_height = 1.8;
         numticks = 4;
@@ -71,7 +69,7 @@ function overlapbuild(id) {
         .classed("minor", true);
 
     //doing things differently for small vs big screens
-    if ($barcharts.width() < mobile_threshold) {
+    if ($overlap.width() < mobile_threshold) {
         var gy = svg.append("g")
             .attr("class", "y axis")
             .attr("transform", "translate(" + padding + ",0)")
@@ -298,7 +296,7 @@ function overlapbuild(id) {
 
 function overlapdraw() {
 
-    if ($barcharts.width() < mobile_threshold) {
+    if ($overlap.width() < mobile_threshold) {
         overlapbuild("#overlap");
     } else {
         overlapbuild("#overlap");

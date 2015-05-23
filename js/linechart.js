@@ -111,7 +111,7 @@ function linedraw() {
         .enter().append("g");
 
     //Season labels for x axis
-    if ($gantt.width() < mobile_threshold) {
+    if ($linechart.width() < mobile_threshold) {
         var legend = svg.selectAll("g.legend")
             .data(labels)
             .enter().append("g");
