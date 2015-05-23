@@ -15,7 +15,7 @@ function bardraw() {
     }
 
     var height = Math.ceil((width * barcharts_aspect_height) / barcharts_aspect_width) - margin.top - margin.bottom,
-        padding = -30;
+        padding = -15;
 
     $barcharts.empty();
 
@@ -107,7 +107,7 @@ function bardraw() {
     seasonlab.append("g")
         .append("text")
         .attr("class", "seasonTitle")
-        .attr("y", height - padding - 10)
+        .attr("y", height + 20)
         .attr("x", function (d, i) {
             return x(10 * i + 3);
         })
