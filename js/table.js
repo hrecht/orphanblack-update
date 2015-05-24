@@ -1,4 +1,5 @@
-//table code based on Gregor Aisch's example: https://vis4.net/blog/posts/making-html-tables-in-d3-doesnt-need-to-be-a-pain/
+//table code draws from  https://vis4.net/blog/posts/making-html-tables-in-d3-doesnt-need-to-be-a-pain/ (d3 table) and http://blog.apps.npr.org/2014/05/09/responsive-data-tables.html (responsive table)
+
 function chartable() {
 
     var formatMinutes = d3.format('.0f');
@@ -71,6 +72,9 @@ function chartable() {
         })
         .attr('class', function (d) {
             return d.cl;
+        })
+        .attr("id", function (d) {
+            return d.head;
         });
 }
 
@@ -78,6 +82,6 @@ var tabledata;
 d3.csv("data/charactertable.csv", function (error, rows) {
     tabledata = rows;
     chartable();
+    
+    var pymChild = new pym.Child();
 });
-
-var pymChild = new pym.Child();
