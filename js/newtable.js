@@ -1,4 +1,3 @@
-//table code based on Gregor Aisch's example: https://vis4.net/blog/posts/making-html-tables-in-d3-doesnt-need-to-be-a-pain/
 function chartable() {
 
     var formatMinutes = d3.format('.0f');
@@ -71,6 +70,9 @@ function chartable() {
         })
         .attr('class', function (d) {
             return d.cl;
+        })
+        .attr("id", function (d) {
+            return d.head;
         });
 }
 
@@ -78,6 +80,6 @@ var tabledata;
 d3.csv("data/charactertable.csv", function (error, rows) {
     tabledata = rows;
     chartable();
+    
+    var pymChild = new pym.Child();
 });
-
-var pymChild = new pym.Child();

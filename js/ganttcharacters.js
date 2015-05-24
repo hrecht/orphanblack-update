@@ -46,12 +46,12 @@ function ganttdraw() {
         .orient("bottom")
         .ticks(5);
 
-    var tip = d3.tip()
-        .attr('class', 'd3-tip')
-        .offset([-10, 0])
-        .html(function (d) {
-            return "Episode " + d.episode + "</br>" + d.character + " as " + d.charas;
-        })
+    //var tip = d3.tip()
+    //    .attr('class', 'd3-tip')
+    //    .offset([-10, 0])
+    //    .html(function (d) {
+    //        return "Episode " + d.episode + "</br>" + d.character + " as " + d.charas;
+    //    })
 
     //just the 5 main clones
     data = data.filter(function (d) {
@@ -146,7 +146,7 @@ function ganttdraw() {
         })
         .enter()
         .append("rect")
-        .attr("class", "bar")
+        //.attr("class", "bar")
         .attr("y", function (d) {
             return y(d.episode);
         })
@@ -158,14 +158,11 @@ function ganttdraw() {
             return x(d.stopmin) - x(d.startmin);
         })
         .attr("fill", "#1B3536")
-        //.attr("fill", function (d) {
-        //    return barcolor(d.cloneswap);
-        //})
         .attr("opacity", 0.5)
-        .on('mouseover', tip.show)
-        .on('mouseout', tip.hide);
+        //.on('mouseover', tip.show)
+        //.on('mouseout', tip.hide);
 
-    svg.call(tip);
+    //svg.call(tip);
 
     function formatXAxis(d) {
         var s = formatAxis(d);

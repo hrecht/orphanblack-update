@@ -27,11 +27,16 @@ $(window).load(function () {
         d3.json(json_data_url, function (error, json) {
             if (error) return console.warn(error);
             data = json;
-            overlapdraw();
-            window.onresize = overlapdraw();
             ganttdraw();
             window.onresize = ganttdraw;
 
+        });
+
+        d3.json(json_data_url, function (error, json) {
+            if (error) return console.warn(error);
+            data = json;
+            overlapdraw();
+            window.onresize = overlapdraw();
         });
 
         d3.csv(barcharts_data_url, function (error, minutes) {

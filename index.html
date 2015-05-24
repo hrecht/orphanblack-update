@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -99,8 +99,7 @@
                     <div class="clearfix"></div>
                     <p>Orphan Black, a scifi thriller from BBC America and Space, stars Canadian actor Tatiana Maslany as several clones, products of a secret military experiment. After the first season, a slew of reviews reported that she must be 99 percent of the show. I decided to test that claim. Prior to Orphan Black's third season, I analyzed lead actress Tatiana Maslany's time on screen in the <a href="http://hrecht.github.io/orphanblack/">first two seasons</a>. The goal was simple: to determine just how much Tatiana Maslany was in each episode. This page, expanding upon that analysis, will be updated weekly with the latest data.</p>
                     <p>Five of the clones have appeared in multiple episodes. Lead character Sarah, who returns home to reunite with her daughter, is the only clone to appear in all twenty. She is on screen nearly every minute of the first three episodes, often impersonating police officer Beth Childs, who makes an all-too-brief appearance in episode one. Sarah meets Canadian soccer mom Alison, American grad student Cosima, and Ukranian assassin Helena early in the first season. Fellow Brit "proclone" Rachel makes her entrance in episode nine. If that wasn't enough, four of her characters impersonate each other - for a total of nine distinct "clone swaps."</p>
-                    <div id="table">
-                    </div>
+                    <div id="table" class="table"></div>
                     <p class="small">See <a href="#about">below</a> for explanation of Jennifer's exclusion from this data.</p>
                     <p>Any one of these characters would be a major role for an actor. Sarah is on screen the most, appearing in every episode and about half of the show's time overall. Drawn separately, the main women's screen time seem like that of an average lead and four supporting actresses.</p>
                     <div id="gantt"><img src="img/ganttfallback.png" alt="[Character appearances by episode]" />
@@ -118,10 +117,11 @@
                     <div id="linechart"><img src="img/linechartfallback.png" alt="[% of Tatiana Maslany by episode]" />
                     </div>
                 </div>
+            </div>
         </section>
-        </div>
+    </div>
 
-        <!-- /.container -->
+    <!-- /.container -->
 
     </div>
     <!-- /.content-section-a -->
@@ -146,13 +146,18 @@
     <script src="js/lib/modernizr.svg.min.js"></script>
     <script src="js/lib/d3.v3.min.js"></script>
     <script src="js/lib/d3.tip.min.js"></script>
-    <script type="text/javascript" src="js/table.js"></script>
+    <script src="js/lib/pym.min.js"></script>
+
+    <script>
+        var pymParent = new pym.Parent('table', 'table.html', {});
+    </script>
+
     <script type="text/javascript" src="js/responsive.js"></script>
     <script type="text/javascript" src="js/barcharts.js"></script>
     <script type="text/javascript" src="js/linechart.js"></script>
     <script type="text/javascript" src="js/ganttoverlap.js"></script>
     <script type="text/javascript" src="js/ganttcharacters.js"></script>
-    
+
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/lib/bootstrap.min.js"></script>

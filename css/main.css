@@ -20,6 +20,7 @@
     fill: #000;
     opacity: 1;
 }
+
 .barchart:hover {
     fill: #3aa3db;
     opacity: 1;
@@ -125,11 +126,12 @@ text.legend {
     stroke-width: 2;
     fill: none;
 }
+
 .seasonline {
     stroke: #000;
     stroke-width: 1;
     fill: none;
-        stroke-dasharray: 2, 2;
+    stroke-dasharray: 2, 2;
 }
 
 .d3-tip {
@@ -151,33 +153,11 @@ text.legend {
     content: "\25BC";
     position: absolute;
     text-align: center;
+    pointer-events: none;
 }
 
 .d3-tip.n:after {
     margin: -1px 0 0 0;
     top: 100%;
     left: 0;
-}
-
-#table {
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-}
-th, td {
-    text-align: left;
-}
-
-th,
-td {
-    padding: 0 3em 0.5ex 0;
-}
-
-th.center,
-td.center {
-    text-align: center;
-}
-
-th.num,
-td.num {
-    text-align: right;
 }

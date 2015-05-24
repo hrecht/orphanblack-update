@@ -20,7 +20,7 @@ ob<-mutate(ob, cloneswap = 0 %>%
              ifelse(character != charas, 1,.))
 
 objs<-select(ob,episode,startmin,stopmin,character,charas,cloneswap)
-objson<-toJSON(ob, digits=6)
+objson<-toJSON(objs, digits=6)
 write(objson, "data/objson.json")
 
 #Collapse by episode and character
