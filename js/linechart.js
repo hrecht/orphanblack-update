@@ -26,7 +26,7 @@ function linedraw() {
 
     var x = d3.scale.linear()
         .range([padding, width])
-        .domain([1, 26.5]);
+        .domain([1, 27.5]);
 
     var y = d3.scale.linear()
         .domain([0, 50])

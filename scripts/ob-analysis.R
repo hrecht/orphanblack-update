@@ -36,15 +36,16 @@ write.csv(ctimebyep, file="data/chartimebyep.csv", row.names=FALSE)
 
 #Data for table: total time by character, # of episodes, cloneswaps
 ctimebyep<-mutate(ctimebyep, p = 1)
-chartime <- summaryBy(minutes + p ~ character, FUN=c(sum), data=ctimebyep)
-chartime <- rename(chartime, totalminutes = minutes.sum, episodesin = p.sum)
-chartime <- arrange(chartime, desc(totalminutes))
-chartime<-mutate(chartime, cloneswaps = 
+chartable <- summaryBy(minutes + p ~ character, FUN=c(sum), data=ctimebyep)
+chartable <- rename(chartable, totalminutes = minutes.sum, episodesin = p.sum)
+chartable <- arrange(chartable, desc(totalminutes))
+chartable<-mutate(chartable, cloneswaps = 
                    ifelse(character=="Sarah", "Beth, Katja, Alison, Cosima, Rachel",
                           ifelse(character=="Alison" | character=="Rachel", "Sarah",
-                                 ifelse(character=="Helena", "Sarah as Beth, Sarah", ""              
-                    ))))
-write.csv(chartime, file="data/charactertable.csv", row.names=FALSE)
+                                 ifelse(character=="Cosima", "Alison",
+                                        ifelse(character=="Helena", "Sarah as Beth, Sarah", ""              
+                    )))))
+write.csv(chartable, file="data/charactertable.csv", row.names=FALSE)
 
 #Get total screen time by clone & cloneswap
 cloneswap <- summaryBy(tottime ~ character + charas, FUN=c(sum), data=ob)
@@ -72,6 +73,44 @@ barcharts
 png(filename = "offline/charts/barcharts_25ep.png", width=1800, height=1000, res=200)
 barcharts
 dev.off()
+
+#BETH CHILDS
+sarah<-filter(ob,grepl("Sarah", character))
+sarahbyep <- summaryBy(tottime ~ episode + character + charas, FUN=c(sum), data=sarah)
+sarahbyep <- rename(sarahbyep, seconds = tottime.sum)
+sarahbyep$minutes = sarahbyep$seconds/60
+
+sarahbyep$charas = factor(sarahbyep$charas, levels = c("Sarah","Beth","Katja","Alison","Cosima","Rachel"))
+
+OBPalette<-c(Sarah = "#684664", Beth = "#6B99A1", Katja ="#E3BA22", Alison = "#D15A86", Cosima = "#238C47", Helena = "#E6842A", Rachel = "#978F80")
+sarahchart<-ggplot(sarahbyep, aes(x = episode, y = minutes, fill=charas)) + 
+  geom_bar(stat = "identity") + 
+  theme(panel.grid.minor=element_blank(), 
+        panel.grid.major.x=element_blank(),
+        axis.title=element_text(size=12,family="Arial",face="bold"),
+        axis.text = element_text(size=6, family="Arial", color="#444444"),
+        plot.title = element_text(size=16, family="Arial")) + 
+  ylab("Minutes") + 
+  xlab("Episode") +
+  scale_fill_manual(values=OBPalette)
+sarahchart
+
+beth<-filter(ob,grepl("Beth", charas))
+bethbyep <- summaryBy(tottime ~ episode + character + charas, FUN=c(sum), data=beth)
+bethbyep <- rename(bethbyep, seconds = tottime.sum)
+bethbyep$minutes = bethbyep$seconds/60
+
+bethchart<-ggplot(bethbyep, aes(x = episode, y = minutes, fill=character)) + 
+  geom_bar(stat = "identity") + 
+  theme(panel.grid.minor=element_blank(), 
+        panel.grid.major.x=element_blank(),
+        axis.title=element_text(size=12,family="Arial",face="bold"),
+        axis.text = element_text(size=6, family="Arial", color="#444444"),
+        plot.title = element_text(size=16, family="Arial")) + 
+  ylab("Minutes") + 
+  xlab("Episode") +
+  scale_fill_manual(values=OBPalette)
+bethchart
 
 #Line chart of % tmas by episode
 linechart <- ggplot(totaltime, aes(x=episode, y=tmaspct, group=1)) +
