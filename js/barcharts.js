@@ -57,7 +57,7 @@ function bardraw() {
         })
 
     //just want the main five
-    data = data.filter(function (d) {
+    data = minutes.filter(function (d) {
         return d.character == "All Tatiana Maslany Clones" | d.character == "Sarah" | d.character == "Alison" | d.character == "Cosima" | d.character == "Helena" | d.character == "Rachel";
     });
 

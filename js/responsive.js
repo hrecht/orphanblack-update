@@ -20,36 +20,26 @@ var barcharts_data_url = "data/chartimebyep.csv";
 var barcharts_aspect_width = 5;
 var barcharts_aspect_height = 4;
 
+function loadgraphs() {
+    ganttdraw();
+    overlapdraw();
+    bardraw();
+    linedraw();
+}
 
 $(window).load(function () {
     if (Modernizr.svg) { // if svg is supported, draw dynamic chart
-
-        d3.json(json_data_url, function (error, json) {
-            if (error) return console.warn(error);
-            data = json;
-            ganttdraw();
-            window.onresize = ganttdraw;
-
+        d3.json(json_data_url, function (json) {
+            dj = json;
+            d3.csv(barcharts_data_url, function (min) {
+                minutes = min;
+                d3.csv(linechart_data_url, function (pcts) {
+                    percents = pcts;
+                    
+                    loadgraphs();
+                    window.onresize = loadgraphs();
+                });
+            });
         });
-
-        d3.json(json_data_url, function (error, json) {
-            if (error) return console.warn(error);
-            data = json;
-            overlapdraw();
-            window.onresize = overlapdraw();
-        });
-
-        d3.csv(barcharts_data_url, function (error, minutes) {
-            data = minutes;
-            bardraw();
-            window.onresize = bardraw;
-        });
-
-        d3.csv(linechart_data_url, function (error, times) {
-            data = times;
-            linedraw();
-            window.onresize = linedraw;
-        });
-
     }
 });

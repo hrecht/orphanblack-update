@@ -54,7 +54,7 @@ function ganttdraw() {
     //    })
 
     //just the 5 main clones
-    data = data.filter(function (d) {
+    data = dj.filter(function (d) {
         return d.character == "Sarah" | d.character == "Alison" | d.character == "Cosima" | d.character == "Helena" | d.character == "Rachel";
     });
 

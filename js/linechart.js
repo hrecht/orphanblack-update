@@ -8,7 +8,7 @@ function linedraw() {
             left: 10
         },
         numticks = 25;
-    if ($gantt.width() < mobile_threshold) {
+    if ($linechart.width() < mobile_threshold) {
         linechart_aspect_height = 5;
         margin.top = 70;
         margin.right = 20;
@@ -26,7 +26,7 @@ function linedraw() {
 
     var x = d3.scale.linear()
         .range([padding, width])
-        .domain([1, 27.5]);
+        .domain([1, 30.5]);
 
     var y = d3.scale.linear()
         .domain([0, 50])
@@ -42,8 +42,9 @@ function linedraw() {
         .orient("bottom")
         .ticks(numticks);
 
+    data = percents;
+    
     var line = d3.svg.line()
-        //.interpolate("basis")
         .x(function (d) {
             return x(d.episode);
         })
@@ -72,12 +73,6 @@ function linedraw() {
             })
         };
     });
-
-    /// y.domain([0, d3.max(types, function (c) {
-    //  return d3.max(c.values, function (v) {
-    //        return v.minutes;
-    //   });
-    //})]);
 
     var type = svg.selectAll(".type")
         .data(types)

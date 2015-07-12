@@ -43,7 +43,7 @@ chartable<-mutate(chartable, cloneswaps =
                    ifelse(character=="Sarah", "Beth, Katja, Alison, Cosima, Rachel",
                           ifelse(character=="Alison" | character=="Rachel", "Sarah",
                                  ifelse(character=="Cosima", "Alison",
-                                        ifelse(character=="Helena", "Sarah as Beth, Sarah", ""              
+                                        ifelse(character=="Helena", "Sarah as Beth, Sarah, Alison", ""              
                     )))))
 write.csv(chartable, file="data/charactertable.csv", row.names=FALSE)
 

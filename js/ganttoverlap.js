@@ -39,7 +39,7 @@ function overlapbuild(id) {
         .domain([0, 40])
         .range([padding, width - padding]);
 
-    var legendlabs = ["Sarah", "Alison", "Cosima", "Helena", "Rachel", "Beth", "Katja", "Tony"];
+    var legendlabs = ["Sarah", "Alison", "Cosima", "Helena", "Rachel", "Krystal", "Beth", "Katja", "Tony"];
     var legendmob = ["1", "2", "3", "4"]
 
     var xAxis = d3.svg.axis()
@@ -53,6 +53,8 @@ function overlapbuild(id) {
         .scale(y)
         .orient("left")
         .innerTickSize(0);
+
+    data = dj;
 
     y.domain(data.map(function (d) {
         return d.episode;
