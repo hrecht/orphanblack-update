@@ -21,7 +21,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/landing-page.css" rel="stylesheet">
+    <link href="css/ob.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
@@ -40,8 +40,8 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
-        <div class="container topnav">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -50,7 +50,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <!--a class="navbar-brand topnav" href="#">Github</a-->
+                <a class="navbar-brand" href="#">ORPHAN BLACK: Data Analysis</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -75,10 +75,13 @@
     <!-- Header -->
     <div class="intro-header">
         <div class="container">
+
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="space">Orphan Black: Data Analysis</h1>
-                    <h3>Season Three Update</h3>
+                    <div class="intro-message">
+                        <h1>Orphan Black</h1>
+                        <h3>1188 minutes of Tatiana Maslanys</h3>
+                    </div>
                 </div>
             </div>
 
@@ -87,43 +90,53 @@
 
     </div>
     <!-- /.intro-header -->
-
-    <!-- Page Content -->
-
-    <div class="content-section-a">
-
-        <section id="foo" class="container content-section">
-            <div class="row">
-                <div class="col-lg-12 container item-container text-center">
-                    <div class="clearfix"></div>
-                    <p>Orphan Black, a scifi thriller from BBC America and Space, stars Canadian actor Tatiana Maslany as several clones, products of a secret military experiment. After the first season, a slew of reviews reported that she must be 99 percent of the show. I decided to test that claim. Prior to Orphan Black's third season, I analyzed lead actress Tatiana Maslany's time on screen in the <a href="http://hrecht.github.io/orphanblack/">first two seasons</a>. The goal was simple: to determine just how much Tatiana Maslany was in each episode. This page, expanding upon that analysis, will be updated weekly with the latest data.</p>
-                    <p>Five of the clones appear regularly. Lead character Sarah, who returns home to reunite with her daughter, is the only clone to appear in all twenty. She is on screen nearly every minute of the first three episodes, often impersonating police officer Beth Childs, who makes an all-too-brief appearance in episode one. Sarah meets Canadian soccer mom Alison, American grad student Cosima, and Ukranian assassin Helena early in the first season. Fellow Brit "proclone" Rachel makes her entrance in episode nine. If that wasn't enough, four of her characters impersonate each other - for a total of nine distinct "clone swaps."</p>
-                    <div id="table" class="table"></div>
-                    <p class="small">See <a href="#about">below</a> for explanation of Jennifer's exclusion from this data.</p>
-                    <p>Any one of these characters would be a major role for an actor. Sarah is on screen the most, appearing in every episode and about half of the show's time overall. Drawn separately, the main women's screen time in each episode seem like that of an average lead and several supporting actresses.</p>
-                    <div id="gantt"><img src="img/ganttfallback.png" alt="[Character appearances by episode]" />
-                    </div>
-                    <p class="lead">But Orphan Black is no average show. Add all of her characters and there is a Tatiana Maslany (or two - or three, or four) in nearly every minute of the series.</p>
-                    <h4>Three seasons of overlapping Tatiana Maslanys</h4>
-                    <div id="overlap"><img src="img/overlap.gif" alt="[20 episodes of overlapping clones]" />
-                    </div>
-                    <p>So, just how much Tatiana Maslany is that? We could look at the empty spaces above, the few scenes in which she doesn't appear. But that wouldn't account for her many multi-clone scenes, in which several versions of herself appear at once. A better measure would be to look at her screen time, clone plus clone plus clone, in each episode.</p>
-                    <div id="barcharts" class="graph"><img src="img/barchartsfallback.png" alt="[Character time by episode]" />
-                    </div>
-                    <p class="small">All clones, including single-episode characters, are included in last chart.</p>
-                    <p>Episode three is 42 minutes long. Her characters appear in that episode for a total of 54 minutes. There are more minutes of her characters than minutes of the show in ten episodes. After three seasons, there are 1244 minutes of Orphan Black and 1188 minutes of Tatiana Maslany.
-                    </p>
-                    <div id="linechart"><img src="img/linechartfallback.png" alt="[% of Tatiana Maslany by episode]" />
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
     <!-- /.container -->
 
     </div>
-    <!-- /.content-section-a -->
+    <!-- /.intro-header -->
+
+    <!-- Page Content -->
+    <section id="foo" class="container">
+        <div class="row">
+            <div class="clearfix"></div>
+
+            <div class="col-lg-12 container item-container text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <p>Orphan Black, a scifi thriller from BBC America and Space, stars Canadian actor Tatiana Maslany as several clones, products of a secret military experiment. After the first season, a slew of reviews reported that she must be 99 percent of the show. I decided to test that claim. Prior to Orphan Black's third season, I analyzed lead actress Tatiana Maslany's time on screen in the <a href="http://hrecht.github.io/orphanblack/">first two seasons</a>. The goal was simple: to determine just how much Tatiana Maslany was in each episode. This page, expanding upon that analysis, includes season three</p>
+                    <p>Five of the clones appear regularly. Lead character Sarah, who returns home to reunite with her daughter, is the only clone to appear in all twenty. She is on screen nearly every minute of the first three episodes, often impersonating police officer Beth Childs, who makes an all-too-brief appearance in episode one. Sarah meets Canadian soccer mom Alison, American grad student Cosima, and Ukranian assassin Helena early in the first season. Fellow Brit "proclone" Rachel makes her entrance in episode nine. If that wasn't enough, five of her characters impersonate each other - for a total of eleven distinct "clone swaps."</p>
+                    <div id="table" class="table"></div>
+                    <p class="small">See <a href="#about">below</a> for explanation of Jennifer's exclusion from this data.</p>
+                    <p>Any one of these characters would be a major role for an actor. Sarah is on screen the most, appearing in every episode and about half of the show's time overall. Drawn separately, the main women's screen time in each episode seem like that of an average lead and several supporting actresses.</p>
+                </div>
+                <div id="gantt"><img src="img/ganttfallback.png" alt="[Character appearances by episode]" />
+                </div>
+
+                <div class="col-lg-10 col-lg-offset-1">
+                    <p>But Orphan Black is no average show. Add all of her characters and there is a Tatiana Maslany (or two - or three, or four) in nearly every minute of the series.</p>
+                </div>
+
+                <h4>Three seasons of overlapping Tatiana Maslanys</h4>
+                <div id="overlap"><img src="img/overlap.gif" alt="[20 episodes of overlapping clones]" />
+                </div>
+
+                <div class="col-lg-10 col-lg-offset-1">
+                    <p>So, just how much Tatiana Maslany is that? We could look at the empty spaces above, the few scenes in which she doesn't appear. But that wouldn't account for her many multi-clone scenes, in which several versions of herself appear at once. A better measure would be to look at her screen time, clone plus clone plus clone, in each episode.</p>
+                </div>
+
+                <div id="barcharts" class="graph"><img src="img/barchartsfallback.png" alt="[Character time by episode]" />
+                </div>
+
+                <div class="col-lg-10 col-lg-offset-1">
+                    <p>Episode three is 42 minutes long. Her characters appear in that episode for a total of 54 minutes. There are more minutes of her characters than minutes of the show in ten episodes. After three seasons, there are 1244 minutes of Orphan Black and 1188 minutes of Tatiana Maslany.
+                    </p>
+                </div>
+
+                <div id="linechart"><img src="img/linechartfallback.png" alt="[% of Tatiana Maslany by episode]" />
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>

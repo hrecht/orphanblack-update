@@ -1,0 +1,107 @@
+body,
+html {
+    width: 100%;
+    height: 100%;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+    font-size: 14px;
+}
+
+body {
+    padding-top: 50px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 35px;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+p {
+    margin: 15 0 15px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.about {
+    font-size: 0.9em;
+}
+
+p.copyright {
+    margin: 15px 0 0;
+}
+
+.navbar {
+    background-color: #000;
+    border-color: #000;
+    height: 50px;
+    margin-bottom: 0px;
+}
+
+.navbar-default,
+.navbar-brand,
+.title {
+    color: #fff !important;
+    font-weight: 100;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #b6dce3;
+}
+
+.intro-header {
+    text-align: center;
+    color: #f8f8f8;
+    background: url(../img/s3header.png) no-repeat center center;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
+.intro-message {
+    position: relative;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+
+.intro-message > h1 {
+    margin: 0;
+    font-size: 5em;
+}
+
+footer {
+    overflow-y: hidden;
+    margin-top: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: #000;
+    color: #fff;
+    margin-bottom: -25px;
+    font-weight: 100;
+    bottom: 0;
+}
+
+@media(max-width:767px) {
+    .navbar {
+        height: auto;
+    }
+    .intro-message {
+        padding-bottom: 15%;
+    }
+    .intro-message > h1 {
+        font-size: 3em;
+    }
+    footer {
+        padding-top: 1em;
+    }
+}
