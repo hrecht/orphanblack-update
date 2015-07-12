@@ -1,6 +1,6 @@
 # Orphan Black: Data viz - the updating version
 
-![Line chart](/img/linechartfallback.png)
+![Bar chart](/img/barchartsfallback.png)
 
 Will be updating weekly with new episode data. Builds on my analysis [of the first two seasons](http://hrecht.github.io/orphanblack/).
 
