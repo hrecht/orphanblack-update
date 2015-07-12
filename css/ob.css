@@ -91,6 +91,10 @@ footer {
     bottom: 0;
 }
 
+footer h3 {
+    font-weight: 400;
+}
+
 @media(max-width:767px) {
     .navbar {
         height: auto;
