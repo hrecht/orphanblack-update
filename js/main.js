@@ -20,9 +20,18 @@ function datatext() {
     for (var i = 0; i < CHARACTERS.length; i++) {
         data = data_char.filter(function (d) {
             return d.character == CHARACTERS[i]
-        })
-        d3.select("#minSarah")
-            .text(data)
+        })[0];
+        d3.select("#ep" + CHARACTERS[i])
+            .text(function () {
+                if (data.episodesin < 1.5) {
+                    return data.episodesin + " episode";
+                } else {
+                    return data.episodesin + " episodes";
+                }
+            });
+
+        d3.select("#min" + CHARACTERS[i])
+            .text(formatNum(data.minutes) + " minutes");
     }
 
 }
@@ -70,7 +79,7 @@ function ganttcharacters() {
         })])
         .range([0, width]);
 
-    $gantt.empty();
+    d3.selectAll("div.gantt").selectAll("*").remove();
 
     //put each SVG in a separate div so they can be moved arround
     var holder = d3.selectAll("div.gantt")
