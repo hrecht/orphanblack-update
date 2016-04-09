@@ -17,16 +17,14 @@
 
     <title>Analyzing Orphan Black: 3 Seasons of Tatiana Maslanys</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/bootstrap.min.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-    <!-- Custom CSS -->
-    <link href="css/ob.css" rel="stylesheet">
+    <!--link href="css/ob.css" rel="stylesheet"-->
     <link href="css/main.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
     <link href="font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,155 +37,101 @@
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">ORPHAN BLACK: Data Analysis</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="social" target="_blank" href="http://twitter.com/intent/tweet?text=1244%20minutes%20of%20@orphanblack,%201188%20minutes%20of%20@tatianamaslany:%20http%3A%2F%2Fbit.ly%21FnvF0A"><i class="fa fa-twitter fa-2x"></i></a>
-                    </li>
-                    <li>
-                        <a class="social" href="https://github.com/hrecht/orphanblack-update"><i class="fa fa-github fa-2x"></i></a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+    <div class="container">
+        <div class="col-lg-12">
+            <h2>OB v2</h2>
+            <div id="overlap"></div>
+            <hr>
 
+            <div class="characters">
+                <div class="characterblock">
+                    <h4>Sarah Manning</h4>
+                    <div id="epSarah" class="blocktext"></div>
+                    <div class="blocktext">episodes</div>
+                    <div id="minSarah" class="blocktext"></div>
+                    <div class="blocktext">minutes</div>
 
-    <!-- Header -->
-    <div class="intro-header" alt="[image of Helena, Sarah, Alison, and Cosima]">
-        <div class="container">
+                    <div id="ganttSarah" class="gantt"></div>
+                </div>
+                <hr>
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-message">
-                        <h1>Orphan Black</h1>
-                        <h3>1188 minutes of Tatiana Maslanys</h3>
-                    </div>
+                <div class="characterblock">
+                    <h4>Alison Hendrix</h4>
+                    <div id="ganttAlison" class="gantt"></div>
+                </div>
+                <hr>
+
+                <div class="characterblock">
+                    <h4>Cosima Niehaus</h4>
+                    <div id="ganttCosima" class="gantt"></div>
+                </div>
+                <hr>
+
+                <div class="characterblock">
+                    <h4>Helena</h4>
+                    <div id="ganttHelena" class="gantt"></div>
+                </div>
+                <hr>
+
+                <div class="characterblock">
+                    <h4>Rachel Duncan</h4>
+                    <div id="ganttRachel" class="gantt"></div>
+                </div>
+                <hr>
+
+                <div class="characterblock">
+                    <h4>Krystal Goderitch</h4>
+                    <div id="ganttKrystal" class="gantt"></div>
+                </div>
+                <hr>
+
+                <div class="characterblock">
+                    <h4>Beth Childs</h4>
+                    <div id="ganttBeth" class="gantt"></div>
+                </div>
+                <hr>
+
+                <div class="characterblock">
+                    <h4>Katja Obinger</h4>
+                    <div id="ganttKatja" class="gantt"></div>
+                </div>
+                <hr>
+
+                <div class="characterblock">
+                    <h4>Tony Sawicki</h4>
+                    <div id="ganttTony" class="gantt"></div>
+                    <hr>
                 </div>
             </div>
 
         </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.intro-header -->
-    <!-- /.container -->
-
-    </div>
-    <!-- /.intro-header -->
-
-    <!-- Page Content -->
-    <section id="foo" class="container">
-        <div class="row">
-            <div class="clearfix"></div>
-
-            <div class="col-lg-12 container item-container text-center">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <p>Orphan Black, a scifi thriller from BBC America and Space, stars Canadian actor Tatiana Maslany as several clones, products of a secret military experiment. After the first season, a slew of reviews reported that she must be 99 percent of the show. I decided to test that claim. Prior to Orphan Black's third season, I analyzed lead actress Tatiana Maslany's time on screen in the <a href="http://hrecht.github.io/orphanblack/">first two seasons</a>. The goal was simple: to determine just how much Tatiana Maslany was in each episode. This page, expanding upon that analysis, includes season three</p>
-                    <p>Five of the clones appear regularly. Lead character Sarah, who returns home to reunite with her daughter, is the only clone to appear in all twenty. She is on screen nearly every minute of the first three episodes, often impersonating police officer Beth Childs, who makes an all-too-brief appearance in episode one. Sarah meets Canadian soccer mom Alison, American grad student Cosima, and Ukranian assassin Helena early in the first season. Fellow Brit "proclone" Rachel makes her entrance in episode nine. If that wasn't enough, five of her characters impersonate each other - for a total of eleven distinct "clone swaps."</p>
-                    <div id="table" class="table"></div>
-                    <p class="small">See <a href="#about">below</a> for explanation of Jennifer's exclusion from this data.</p>
-                    <p>Any one of these characters would be a major role for an actor. Sarah is on screen the most, appearing in every episode and about half of the show's time overall. Drawn separately, the main women's screen time in each episode seem like that of an average lead and several supporting actresses.</p>
-                </div>
-                <div id="gantt"><img src="img/ganttfallback.png" alt="[Character appearances by episode]" />
-                </div>
-
-                <div class="col-lg-10 col-lg-offset-1">
-                    <p>But Orphan Black is no average show. Add all of her characters and there is a Tatiana Maslany (or two - or three, or four) in nearly every minute of the series.</p>
-                    <h4>Three seasons of overlapping Tatiana Maslanys</h4>
-                </div>
-
-                <div id="overlap"><img src="img/overlap.gif" alt="[20 episodes of overlapping clones]" />
-                </div>
-
-                <div class="col-lg-10 col-lg-offset-1">
-                    <p>So, just how much Tatiana Maslany is that? We could look at the empty spaces above, the few scenes in which she doesn't appear. But that wouldn't account for her many multi-clone scenes, in which several versions of herself appear at once. A better measure would be to look at her screen time, clone plus clone plus clone, in each episode.</p>
-                </div>
-
-                <div id="barcharts" class="graph"><img src="img/barchartsfallback.png" alt="[Character time by episode]" />
-                </div>
-
-                <div class="col-lg-10 col-lg-offset-1">
-                    <p>Episode three is 42 minutes long. Her characters appear in that episode for a total of 54 minutes. There are more minutes of her characters than minutes of the show in ten episodes. After three seasons, there are 1244 minutes of Orphan Black and 1188 minutes of Tatiana Maslany.
-                    </p>
-                </div>
-
-                <div id="linechart"><img src="img/linechartfallback.png" alt="[% of Tatiana Maslany by episode]" />
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div id="about" class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3 class="text-center footer">About</h3>
-                    <p class="about">The data for this page were collected using a strict, consistent, and highly enjoyable but not peer-reviewed method of rewatching all twenty episodes with a spreadsheet open and one hand on the pause button. Scene changes or other breaks less than 10 seconds were ignored. Recaps, title scenes, credits, and previews were excluded from analysis.</p>
-                    <p class="about">I collected the data for season one before season two's premiere. I decided to exclude home videos and corpses (RIP Beth and Katja) because including those scenes often repeated footage and also made it appear that Beth was alive and kicking in several episodes. For consistency, Jennifer's home videos in season two had to be treated equally and therefore her scenes are not included in this analysis.</p>
-                    <p class="about">&copy; <a href="http://hrecht.github.io/">Hannah Recht</a>, 2015. View the data and code on <a href="https://github.com/hrecht/orphanblack-update">Github</a>. For questions or comments or theories about Beth Childs, contact me on <a href="https://twitter.com/hannah_recht">Twitter</a>. And if you've somehow read this far but yet haven't watched the show, go check it out on <a href="http://www.amazon.com/Natural-Selection/dp/B00C49H3WI">Amazon Prime</a>. Image credit to Space.</p>
-                </div>
-            </div>
-        </div>
-        </div>
-    </footer>
-
-    <!-- scripts -->
-    <script src="js/lib/jquery.min.js"></script>
-    <script src="js/lib/bootstrap.min.js"></script>
-    <script src="js/lib/modernizr.svg.min.js"></script>
-    <script src="js/lib/d3.min.js"></script>
-    <script src="js/lib/d3.tip.min.js"></script>
-    <script src="js/lib/pym.min.js"></script>
-
-    <script>
-        var pymParent = new pym.Parent('table', 'table.html', {});
-    </script>
-
-    <script type="text/javascript" src="js/responsive.js"></script>
-    <script type="text/javascript" src="js/barcharts.js"></script>
-    <script type="text/javascript" src="js/linechart.js"></script>
-    <script type="text/javascript" src="js/ganttoverlap.js"></script>
-    <script type="text/javascript" src="js/ganttcharacters.js"></script>
 
 
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-60498967-1', 'auto');
-        ga('send', 'pageview');
-    </script>
+        <script type="text/javascript" src="lib/jquery-2.2.3.min.js"></script>
+        <script type="text/javascript" src="lib/d3.v3.min.js"></script>
+        <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="lib/modernizr.svg.min.js"></script>
+
+        <script type="text/javascript" src="js/main.js"></script>
+
+
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-60498967-1', 'auto');
+            ga('send', 'pageview');
+        </script>
 
 </body>
 
