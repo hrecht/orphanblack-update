@@ -11,10 +11,27 @@ hr {
     margin-bottom: 35px;
 }
 
-img.social {
-    height: 24px;
-    width: auto;
+#linechart {
+    padding-top: 15px;
+    padding-bottom: 20px;
 }
+
+#overlap {
+    padding-top: 20px;
+}
+/* headline numbers */
+
+#mainnumbers {
+    font-size: 20px;
+    margin-bottom: 1em;
+    font-weight: 100;
+}
+
+.blocknum {
+    font-size: 26px;
+    display: inline-block;
+}
+
 
 /* character blocks */
 
@@ -40,21 +57,18 @@ img.headshot {
     width: 100%;
 }
 
+.trackertitle {
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 26px;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
 .blocktitle {
     text-transform: uppercase;
     font-weight: 100;
     font-size: 20px;
-}
-
-#mainnumbers {
-    font-size: 20px;
-    margin-bottom: 1em;
-    font-weight: 100;
-}
-
-.blocknum {
-    font-size: 26px;
-    display: inline-block;
 }
 
 .name {
@@ -139,41 +153,6 @@ tr {
     stroke: #efefef;
 }
 
-.overlay {
-    fill: none;
-    pointer-events: all;
-}
-
-.focus circle {
-    fill: #ffffff;
-    stroke: #4f8a83;
-    stroke-width: 2;
-}
-
-.tip {
-    font-size: 12px;
-}
-
-.dot {
-    fill: #ffffff;
-    stroke: #4f8a83;
-    stroke-width: 1;    
-}
-
-.overlapbar {
-    fill: #1B3536;
-}
-
-.overlapbar .selected {
-    fill: #000000;
-    opacity: 1;
-}
-
-.axistitle {
-    font-size: 12px;
-    font-style: italic;
-}
-
 .seasonline {
     fill: none;
     stroke-width: 1px;
@@ -192,6 +171,61 @@ tr {
     font-size: 14px;
 }
 
+.label-small {
+    font-size: 13px;
+}
+
+
+/*line chart */
+
+.overlay {
+    fill: none;
+    pointer-events: all;
+}
+
+.focus circle {
+    fill: #ffffff;
+    stroke: #4f8a83;
+    stroke-width: 2;
+}
+
+.tip {
+    font-size: 12px;
+}
+
+.legendline {
+    shape-rendering: crispEdges;
+    stroke-width: 1px;
+}
+
+.dot {
+    fill: #ffffff;
+    stroke: #4f8a83;
+    stroke-width: 1;
+}
+
+.chartline {
+    fill: none;
+    stroke-width: 1px;
+}
+
+
+/* gantts */
+
+.overlapbar {
+    fill: #1B3536;
+}
+
+.overlapbar .selected {
+    fill: #000000;
+    opacity: 1;
+}
+
+.axistitle {
+    font-size: 12px;
+    font-style: italic;
+}
+
 .legend {
     fill: #fff;
     font-size: 13px;
@@ -208,20 +242,6 @@ text.legend {
 
 .moblegendbar {
     fill: #1B3536;
-}
-
-.label-small {
-    font-size: 13px;
-}
-
-.charttitle {
-    font-size: 15px;
-}
-
-.chartline {
-    fill: none;
-    stroke-width: 1px;
-    stroke: #b4b4b4;
 }
 
 @media(max-width:767px) {

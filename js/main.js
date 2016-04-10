@@ -606,16 +606,19 @@ function linechart() {
         var l_w = 150,
             l_h = 30;
 
-        legend.append("rect")
-            .attr("fill", function (d, i) {
+        legend.append("line")
+            .attr("stroke", function (d, i) {
                 return COLORS[i];
             })
-            .attr("x", function (d, i) {
+            .attr("class", "legendline")
+            .attr("x1", function (d, i) {
                 return (i * l_w);
             })
-            .attr("y", -35)
-            .attr("width", 20)
-            .attr("height", 1);
+            .attr("x2", function (d, i) {
+                return (i * l_w) + 20;
+            })
+            .attr("y1", -35)
+            .attr("y2", -35);
 
         legend.append("text")
             .attr("class", "tip")
