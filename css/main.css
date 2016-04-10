@@ -119,7 +119,7 @@ tr {
 
 .gantt {
     height: 300px;
-    margin-left: 20px;
+    margin-left: 10px;
     margin-right: 10px;
 }
 
@@ -242,6 +242,12 @@ text.legend {
 
 .moblegendbar {
     fill: #1B3536;
+}
+
+@media(max-width:1188px) {
+    .blocktitle.bottom {
+        max-width: 60%;
+    }
 }
 
 @media(max-width:767px) {

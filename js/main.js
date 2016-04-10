@@ -11,7 +11,7 @@ var SEASONS = [1, 2, 3];
 var CHARACTERS = ["Sarah", "Alison", "Cosima", "Helena", "Rachel", "Krystal", "Beth", "Katja", "Tony"];
 var CHARACTERS_GANTT = ["Sarah", "Alison", "Cosima", "Helena", "Rachel", "Krystal", "Beth"];
 var LINELABELS = ["Episode length", "Tatiana Maslany screen time"];
-var COLORS = ["#712164", "#4f8a83"];
+var COLORS = ["#a78fa3", "#185a52"];
 
 function formatXAxis(d) {
     var s = formatNum(d);
@@ -732,7 +732,7 @@ function ganttcharacters() {
     var chart_aspect_height = 0.75;
     var margin = {
         top: 5,
-        right: 20,
+        right: 25,
         bottom: 40,
         left: 60
     };
