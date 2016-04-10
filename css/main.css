@@ -21,9 +21,7 @@ hr {
 }
 
 .gantt,
-.blocktext,
-.name,
-.headshot {
+.name {
     display: inline-block;
 }
 
@@ -31,7 +29,7 @@ img.headshot {
     height: 300px;
     width: auto;
     margin-right: 20px;
-    float: left;
+    margin-bottom: 10px;
 }
 
 .characterblock {
@@ -45,15 +43,16 @@ img.headshot {
 }
 
 #mainnumbers {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 1em;
     font-weight: 100;
 }
 
 .blocknum {
-    font-size: 22px;
+    font-size: 26px;
     display: inline-block;
 }
+
 .name {
     width: 40%;
     margin-bottom: 12px;
@@ -70,7 +69,7 @@ img.headshot {
 /* table */
 
 table {
-    margin-top: 0.5em;
+    margin-top: 15px;
     table-layout: fixed;
     width: 100%;
     font-weight: 100;
@@ -134,6 +133,27 @@ tr {
     stroke: #efefef;
 }
 
+.overlay {
+    fill: none;
+    pointer-events: all;
+}
+
+.focus circle {
+    fill: #ffffff;
+    stroke: #4f8a83;
+    stroke-width: 2;
+}
+
+.tip {
+    font-size: 12px;
+}
+
+.dot {
+    fill: #ffffff;
+    stroke: #4f8a83;
+    stroke-width: 1;    
+}
+
 .overlapbar {
     fill: #1B3536;
 }
@@ -192,4 +212,13 @@ text.legend {
     fill: none;
     stroke-width: 1px;
     stroke: #b4b4b4;
+}
+
+@media(max-width:767px) {
+    img.headshot {
+        height: auto;
+        max-width: 100%;
+        margin-right: 20px;
+        margin-bottom: 10px;
+    }
 }

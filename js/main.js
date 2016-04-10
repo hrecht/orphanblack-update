@@ -6,7 +6,7 @@ var char_data_url = "data/charactertable.csv";
 var total_data_url = "data/totaltime.csv";
 var $overlap = $('#overlap');
 var $linechart = $('#linechart');
-var formatNum = d3.format('.0f');
+var formatNum = d3.format(',.0f');
 var SEASONS = [1, 2, 3];
 var CHARACTERS = ["Sarah", "Alison", "Cosima", "Helena", "Rachel", "Krystal", "Beth", "Katja", "Tony"];
 var CHARACTERS_GANTT = ["Sarah", "Alison", "Cosima", "Helena", "Rachel", "Krystal", "Beth"];
@@ -21,12 +21,30 @@ function formatXAxis(d) {
 //body text straight from data;
 function datatext() {
 
+    //top-line numbers
+    var eps = d3.max(data_total, function (d) {
+        return d.episode;
+    });
+
+    var totmin = d3.sum(data_total, function (d) {
+        return d.epmin;
+    });
+
+    var tottmas = d3.sum(data_total, function (d) {
+        return d.tmasmin;
+    });
+
+    d3.select("#toteps").html(eps + " episodes");
+    d3.select("#totmin").html(formatNum(totmin) + " minutes");
+    d3.select("#tottmas").html(formatNum(tottmas) + " minutes");
+
+    //individual character tables
     for (var i = 0; i < CHARACTERS.length; i++) {
         data = data_char.filter(function (d) {
             return d.character == CHARACTERS[i]
         })[0];
-        
-        var formatSwap = function(d) {
+
+        var formatSwap = function (d) {
             if (d == "") {
                 return "None";
             } else {
@@ -34,7 +52,7 @@ function datatext() {
             }
         }
 
-        var tabledata = [["Episodes in", data.episodesin], 
+        var tabledata = [["Episodes in", data.episodesin],
                          ["Minutes", formatNum(data.minutes)],
                         ["Clone swaps", formatSwap(data.cloneswaps)],
                         ["Origin", data.origin],
@@ -285,9 +303,7 @@ function overlap() {
 
 function linechart() {
 
-    data = data_total;
-
-    data.forEach(function (d) {
+    data_total.forEach(function (d) {
         d.epmin = +d.epmin;
         d.tmasmin = +d.tmasmin;
         d.episode = +d.episode;
@@ -295,19 +311,19 @@ function linechart() {
 
     var numticks = 6;
 
-    if ($linechart.width() >= 400) {
+    if ($linechart.width() >= 450) {
         var chart_aspect_height = 0.75;
         var margin = {
-                top: 20,
-                right: 160,
+                top: 50,
+                right: 75,
                 bottom: 40,
                 left: 25
             },
             isMobile = false;
     } else {
-        var chart_aspect_height = 1;
+        var chart_aspect_height = 1.2;
         var margin = {
-                top: 20,
+                top: 70,
                 right: 20,
                 bottom: 40,
                 left: 25
@@ -331,13 +347,13 @@ function linechart() {
         .domain(["tmasmin", "epmin"]);
 
     var y = d3.scale.linear()
-        .domain([0, d3.max(data, function (d) {
+        .domain([0, d3.max(data_total, function (d) {
             return d.tmasmin;
         })])
         .range([height, 0], .1)
 
     var x = d3.scale.linear()
-        .domain([1, d3.max(data, function (d) {
+        .domain([1, d3.max(data_total, function (d) {
             return d.episode;
         })])
         .range([0, width]);
@@ -431,14 +447,14 @@ function linechart() {
             return y(d.minutes);
         });
 
-    color.domain(d3.keys(data[0]).filter(function (key) {
+    color.domain(d3.keys(data_total[0]).filter(function (key) {
         return key == "tmasmin" | key == "epmin";
     }));
 
     var types = color.domain().map(function (name) {
         return {
             name: name,
-            values: data.map(function (d) {
+            values: data_total.map(function (d) {
                 return {
                     episode: d.episode,
                     minutes: +d[name]
@@ -463,7 +479,7 @@ function linechart() {
         });
 
     //direct line labels
-    lines.append("text")
+    /*lines.append("text")
         .datum(function (d) {
             return {
                 name: d.name,
@@ -481,32 +497,138 @@ function linechart() {
         .text(function (d, i) {
             return LINELABELS[i];
         })
-        .attr("class", "axis");
+        .attr("class", "axis");*/
 
-    //dots for tmas line maybe??
+    //dots for tmas line
     var dots = svg.selectAll(".dot")
-        .data(data)
+        .data(data_total)
         .enter()
         .append("g")
         .attr("class", "dot");
 
     dots.append("circle")
         .attr("r", 2)
-        .attr("fill", COLORS[1])
-
-    .attr("cx", function (d) {
+        .attr("cx", function (d) {
             return x(d.episode);
         })
         .attr("cy", function (d) {
             return y(d.tmasmin);
         });
 
+    //legend
+    var legend = svg.selectAll("g.legend")
+        .data(LINELABELS)
+        .enter()
+        .append("g");
+
+    if (!isMobile) {
+        var l_w = 150,
+            l_h = 30;
+
+        legend.append("rect")
+            .attr("fill", function (d, i) {
+                return COLORS[i];
+            })
+            .attr("x", function (d, i) {
+                return (i * l_w);
+            })
+            .attr("y", -35)
+            .attr("width", 20)
+            .attr("height", 1);
+
+        legend.append("text")
+            .attr("class", "tip")
+            .attr("x", function (d, i) {
+                return (i * l_w) + 25;
+            })
+            .attr("y", -30)
+            .text(function (d, i) {
+                return LINELABELS[i];
+            });
+
+        //tooltip on tmas line
+        var bisectDate = d3.bisector(function (d) {
+            return d.episode;
+        }).left;
+
+        var focus = svg.append("g")
+            .attr("class", "focus")
+            .style("display", "none");
+
+        focus.append("circle")
+            .attr("r", 4.5);
+
+        focus.append("text")
+            .attr("id", "tipep")
+            .attr("class", "tip")
+            .attr("x", 11)
+            .attr("dy", "4px");
+
+        focus.append("text")
+            .attr("id", "tipmin")
+            .attr("class", "tip")
+            .attr("x", 11)
+            .attr("dy", "16px");
+
+        svg.append("rect")
+            .attr("class", "overlay")
+            .attr("width", width)
+            .attr("height", height)
+            .on("mouseover", function () {
+                focus.style("display", null);
+            })
+            .on("mouseout", function () {
+                focus.style("display", "none");
+            })
+            .on("mousemove", mousemove);
+
+    } else {
+        var l_h = 20;
+
+        legend.append("rect")
+            .attr("fill", function (d, i) {
+                return COLORS[i];
+            })
+            .attr("x", 10)
+            .attr("y", function (d, i) {
+                return (-1 * i * l_h) - 25;
+            })
+            .attr("width", 20)
+            .attr("height", 2);
+
+        legend.append("text")
+            .attr("class", "tip")
+            .attr("x", 35)
+            .attr("y", function (d, i) {
+                return (-1 * i * l_h) - 20;
+            })
+            .text(function (d, i) {
+                return LINELABELS[i];
+            });
+
+    }
+
+    function mousemove() {
+        var x0 = x.invert(d3.mouse(this)[0]);
+        var i = bisectDate(data_total, x0, 1);
+        var d0 = data_total[i - 1];
+        var d1 = data_total[i];
+        var d = x0 - d0.episode > d1.episode - x0 ? d1 : d0;
+        focus.attr("transform", "translate(" + x(d.episode) + "," + y(d.tmasmin) + ")");
+
+        focus.select("text#tipep")
+            .html("Episode " + d.episode);
+
+        focus.select("text#tipmin")
+            .html(formatNum(d.tmasmin) + " minutes");
+    }
+
 }
 
 function ganttcharacters() {
 
-    data = data_main.filter(function(d) {
-        return d.character == "Sarah" | d.character == "Alison" | d.character == "Cosima" | d.character == "Helena" | d.character == "Rachel"  | d.character == "Krystal" | d.character == "Beth";
+    data = data_main.filter(function (d) {
+        return d.character == "Sarah" | d.character == "Alison" | d.character == "Cosima" | d.character == "Helena" | d.character == "Rachel" | d.character == "Krystal" | d.character == "Beth";
     });
 
     data.forEach(function (d) {
@@ -557,31 +679,12 @@ function ganttcharacters() {
             return characters;
         })
         .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        /*.enter()
-        .append("div")
-        .attr("id", function (d) {
-            return "gantt-" + d.key;
-        })
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .attr("class", "gantt");*/
-
+        .attr("height", height + margin.top + margin.bottom);
     var svg = holder.append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    /*var svg = d3.select("#gantt").selectAll("svg")
-        .data(characters)
-        .enter()
-        .append("svg:svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .attr("class", "gantt")
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");*/
 
     var y = d3.scale.ordinal()
         .rangeRoundBands([0, height], .1)
@@ -594,6 +697,16 @@ function ganttcharacters() {
             return d.stopmin;
         })])
         .range([0, width]);
+
+    var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left")
+        .tickSize(0)
+        .tickFormat("");
+
+    var gy = svg.append("g")
+        .attr("class", "y axis-show")
+        .call(yAxis);
 
     /*var xAxis = d3.svg.axis()
         .scale(x)
@@ -611,26 +724,16 @@ function ganttcharacters() {
         })
         .classed("minor", true);*/
 
-    var yAxis = d3.svg.axis()
-        .scale(y)
-        .orient("left")
-        .tickSize(0)
-        .tickFormat("");
-
-    var gy = svg.append("g")
-        .attr("class", "y axis-show")
-        .call(yAxis);
-
     var xAxis = d3.svg.axis()
         .scale(x)
         .orient("bottom")
+        .tickFormat(formatXAxis)
         .ticks(numticks);
 
     var gx = svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis);
-
 
     var seasonline = svg.selectAll(".seasonline")
         .data([11, 21])

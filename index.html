@@ -23,9 +23,6 @@
     <link href="css/ob.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
 
-    <link href="font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -56,10 +53,10 @@
                         <a href="#about">About</a>
                     </li>
                     <li>
-                        <a class="social" target="_blank" href="http://twitter.com/intent/tweet?text=1244%20minutes%20of%20@orphanblack,%201188%20minutes%20of%20@tatianamaslany:%20http%3A%2F%2Fbit.ly%21FnvF0A"><i class="fa fa-twitter fa-2x"></i></a>
+                        <a class="social" target="_blank" href="http://twitter.com/intent/tweet?text=1244%20minutes%20of%20@orphanblack,%201188%20minutes%20of%20@tatianamaslany:%20http%3A%2F%2Fbit.ly%21FnvF0A"><!--i class="fa fa-twitter fa-2x"></i-->Twitter</a>
                     </li>
                     <li>
-                        <a class="social" href="https://github.com/hrecht/orphanblack-update"><i class="fa fa-github fa-2x"></i></a>
+                        <a class="social" href="https://github.com/hrecht/orphanblack-update"><!--i class="fa fa-github fa-2x"></i-->Source</a>
                     </li>
                 </ul>
             </div>
@@ -74,9 +71,9 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
             <div id="mainnumbers">There have been
-                <div class="blocknum">30 episodes</div> and
-                <div class="blocknum">2000 minutes</div> of Orphan Black featuring
-                <div class="blocknum">1900 minutes</div> of Tatiana Maslanys</div>
+                <div class="blocknum" id="toteps"></div> and
+                <div class="blocknum" id="totmin"></div> of Orphan Black,</br>featuring
+                <div class="blocknum" id="tottmas"></div> of Tatiana Maslanys</div>
         </div>
 
         <div class="col-lg-4 col-lg-offset-1">
@@ -85,7 +82,7 @@
 
         <div class="row">
 
-            <div class="col-lg-8 col-lg-offset-3">
+            <div class="col-lg-8 col-lg-offset-2">
                 <div id="linechart"></div>
             </div>
         </div>
@@ -103,7 +100,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-3">
-                            <img src="img/sarah.jpg" class="headshot">
+                            <img src="img/sarah.jpg" class="headshot" alt="Image of Sarah Manning">
                         </div>
 
                         <div class="col-lg-5">
@@ -126,7 +123,7 @@
 
                     <div class="row">
                         <div class="col-lg-3">
-                            <img src="img/alison.jpg" class="headshot">
+                            <img src="img/alison.jpg" class="headshot" alt="Image of Alison Hendrix">
                         </div>
 
                         <div class="col-lg-5">
@@ -145,7 +142,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-3">
-                                <img src="img/cosima.jpg" class="headshot">
+                                <img src="img/cosima.jpg" class="headshot" alt="Image of Cosima Niehaus">
                             </div>
 
                             <div class="col-lg-5">
@@ -164,7 +161,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-3">
-                                <img src="img/helena.jpg" class="headshot">
+                                <img src="img/helena.jpg" class="headshot" alt="Image of Helena">
                             </div>
 
                             <div class="col-lg-5">
@@ -183,7 +180,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-3">
-                                <img src="img/rachel.jpg" class="headshot">
+                                <img src="img/rachel.jpg" class="headshot" alt="Image of Rachel Duncan">
                             </div>
 
                             <div class="col-lg-5">
@@ -202,7 +199,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-3">
-                                <img src="img/krystal.jpg" class="headshot">
+                                <img src="img/krystal.jpg" class="headshot" alt="Image of Krystal Goderitch">
                             </div>
 
                             <div class="col-lg-5">
@@ -220,14 +217,14 @@
                             <div class="name">Beth Childs</div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-3">
-                                <img src="img/bethbw.jpg" class="headshot">
+                            <div class="col-md-3">
+                                <img src="img/bethbw.jpg" class="headshot" alt="Greyscale image of Beth Childs">
                             </div>
 
-                            <div class="col-lg-5">
+                            <div class="col-md-5">
                                 <div id="ganttBeth" class="gantt"></div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-md-4">
                                 <div id="tableBeth"></div>
                             </div>
                         </div>
@@ -241,7 +238,7 @@
                                     <div class="name">Katja Obinger</div>
                                 </div>
                                 <div class="nospace col-lg-6">
-                                    <img src="img/katjabw.jpg" class="headshot">
+                                    <img src="img/katjabw.jpg" class="headshot" alt="Greyscale image of Katja Obinger">
                                 </div>
                                 <div class="col-lg-6">
                                     <div id="tableKatja"></div>
@@ -252,7 +249,7 @@
                                     <div class="name">Tony Sawicki</div>
                                 </div>
                                 <div class="nospace col-lg-6">
-                                    <img src="img/tony.jpg" class="headshot">
+                                    <img src="img/tony.jpg" class="headshot" alt="Image of Tony Sawicki">
                                 </div>
                                 <div class="col-lg-6">
                                     <div id="tableTony"></div>
@@ -268,28 +265,28 @@
                             <div class="name">Dead before series</div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 col-sm-12">
                                 <div class="blocktitle">Jennifer Fitzsimmons</div>
                                 <div class="blocktext">USA</div>
-                                <img src="img/jenniferbw.jpg" class="headshot">
+                                <img src="img/jenniferbw.jpg" class="headshot" alt="Greyscale image of Jennifer Fitzsimmons">
                             </div>
 
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 col-sm-12">
                                 <div class="blocktitle">Aryanna Giordano</div>
                                 <div class="blocktext">Italy</div>
-                                <img src="img/aryannabw.jpg" class="headshot">
+                                <img src="img/aryannabw.jpg" class="headshot" alt="Greyscale image of Aryanna Giordano">
                             </div>
 
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 col-sm-12">
                                 <div class="blocktitle">Janika Zingler</div>
                                 <div class="blocktext">Austria</div>
-                                <img src="img/janikabw.jpg" class="headshot">
+                                <img src="img/janikabw.jpg" class="headshot" alt="Greyscale image of Janika Zingler">
                             </div>
 
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 col-sm-12">
                                 <div class="blocktitle">Danielle Fournier</div>
                                 <div class="blocktext">France</div>
-                                <img src="img/daniellebw.jpg" class="headshot">
+                                <img src="img/daniellebw.jpg" class="headshot" alt="Greyscale image of Danielle Fournier">
                             </div>
                         </div>
                     </div>
