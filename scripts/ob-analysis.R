@@ -15,9 +15,9 @@ ob <- ob %>% mutate(cloneswap = ifelse(character != charas, 1, 0)) %>%
   mutate(minutes = tottime/60)
 write.csv(ob, "data/obtimes.csv", row.names=F, na="")
 
-objs <- ob %>% select(episode, startmin, stopmin, character, charas, cloneswap)
-objson <- toJSON(objs, digits=6)
-write(objson, "data/obtimes.json")
+#objs <- ob %>% select(episode, startmin, stopmin, character, charas, cloneswap)
+#objson <- toJSON(objs, digits=6)
+#write(objson, "data/obtimes.json")
 
 #Collapse to get minutes by character & episode
 timebyep <- ob %>% group_by(episode, character) %>%

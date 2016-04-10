@@ -9,6 +9,7 @@ var $linechart = $('#linechart');
 var formatNum = d3.format('.0f');
 var SEASONS = [1, 2, 3];
 var CHARACTERS = ["Sarah", "Alison", "Cosima", "Helena", "Rachel", "Krystal", "Beth", "Katja", "Tony"];
+var CHARACTERS_GANTT = ["Sarah", "Alison", "Cosima", "Helena", "Rachel", "Krystal", "Beth"];
 var LINELABELS = ["Episode length", "Tatiana Maslany screen time"];
 var COLORS = ["#712164", "#4f8a83"];
 
@@ -33,7 +34,7 @@ function datatext() {
             }
         }
 
-        var tabledata = [["Episodes", data.episodesin], 
+        var tabledata = [["Episodes in", data.episodesin], 
                          ["Minutes", formatNum(data.minutes)],
                         ["Clone swaps", formatSwap(data.cloneswaps)],
                         ["Origin", data.origin],
@@ -271,10 +272,11 @@ function overlap() {
                 return d;
             })
             .attr("x", function (d, i) {
-                return (i * l_w) + width / 6 + 10;
+                return (i * l_w) + width / 6 + 29;
             })
             .attr("y", -30)
             .attr("class", "legend")
+            .attr("text-anchor", "middle")
             .text(function (d, i) {
                 return CHARACTERS[i];
             });
@@ -293,7 +295,7 @@ function linechart() {
 
     var numticks = 6;
 
-    if ($linechart.width() >= MOBILE_THRESHOLD) {
+    if ($linechart.width() >= 400) {
         var chart_aspect_height = 0.75;
         var margin = {
                 top: 20,
@@ -503,7 +505,9 @@ function linechart() {
 
 function ganttcharacters() {
 
-    data = data_main;
+    data = data_main.filter(function(d) {
+        return d.character == "Sarah" | d.character == "Alison" | d.character == "Cosima" | d.character == "Helena" | d.character == "Rachel"  | d.character == "Krystal" | d.character == "Beth";
+    });
 
     data.forEach(function (d) {
         d.startmin = +d.startmin;
@@ -516,7 +520,7 @@ function ganttcharacters() {
             return d.character;
         })
         .sortKeys(function (a, b) {
-            return CHARACTERS.indexOf(a) - CHARACTERS.indexOf(b);
+            return CHARACTERS_GANTT.indexOf(a) - CHARACTERS_GANTT.indexOf(b);
         })
         .entries(data);
 
