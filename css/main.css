@@ -24,7 +24,7 @@ hr {
 #mainnumbers {
     font-size: 20px;
     margin-bottom: 1em;
-    font-weight: 100;
+    font-weight: 300;
 }
 
 .blocknum {
@@ -59,7 +59,7 @@ img.headshot {
 
 .trackertitle {
     text-transform: uppercase;
-    font-weight: 100;
+    font-weight: 300;
     font-size: 26px;
     margin-bottom: 1em;
     text-align: center;
@@ -67,7 +67,7 @@ img.headshot {
 
 .blocktitle {
     text-transform: uppercase;
-    font-weight: 100;
+    font-weight: 300;
     font-size: 20px;
 }
 
@@ -77,7 +77,7 @@ img.headshot {
 }
 
 .blocktext {
-    font-weight: 100;
+    font-weight: 300;
     font-size: 14px;
     margin-bottom: 6px;
     text-transform: uppercase;
@@ -91,7 +91,7 @@ table {
     margin-left: 20px;
     table-layout: fixed;
     width: 100%;
-    font-weight: 100;
+    font-weight: 300;
     font-size: 14px;
     text-transform: uppercase;
 }
