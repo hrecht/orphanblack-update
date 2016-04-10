@@ -1,11 +1,12 @@
-"character","episodesin","minutes","cloneswaps"
-"All Tatiana Maslany Clones",30,1188.31666666667,""
-"Sarah",30,576.483333333333,"Beth, Katja, Alison, Cosima, Rachel"
-"Alison",26,195.7,"Sarah"
-"Cosima",29,168.283333333333,"Alison"
-"Helena",25,155.116666666667,"Sarah as Beth, Sarah, Alison"
-"Rachel",15,63.0333333333333,"Sarah"
-"Tony",1,14.4166666666667,""
-"Krystal",3,8.4,""
-"Beth",2,4.21666666666667,""
-"Katja",1,2.66666666666667,""
+"character","cloneswaps","origin","status","fullname","episodesin","minutes"
+"All Tatiana Maslany Clones","","","","",30,1188.31666666667
+"Sarah","Beth, Katja, Alison, Cosima, Rachel","England","Alive","Sarah Manning",30,576.483333333333
+"Alison","Sarah","Canada","Alive","Alison Hendrix",26,195.7
+"Cosima","Alison","USA","Alive","Cosima Niehaus",29,168.283333333333
+"Helena","Sarah as Beth, Sarah, Alison","Ukraine","Alive","Helena",25,155.116666666667
+"Rachel","Sarah","England","Alive","Rachel Duncan",15,63.0333333333333
+"Tony","","USA","Unknown","Tony Sawicki",1,14.4166666666667
+"Krystal","","Canada","Alive","Krystal Goderitch",3,8.4
+"Beth","","Canada","Dead - suicide","Beth Childs",2,4.21666666666667
+"Katja","","Germany","Dead - shot by Helena","Katja Obinger",1,2.66666666666667
+"Jennifer","","","Dead - clone disease","Jennifer Fitzsimmons",NA,NA

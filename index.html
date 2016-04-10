@@ -15,12 +15,12 @@
     <meta name="twitter:image" content="https://raw.githubusercontent.com/hrecht/orphanblack-update/gh-pages/img/barchartsfallback.png" />
     <meta name="twitter:url" content="https://hrecht.github.io/orphanblack-update/">
 
-    <title>Analyzing Orphan Black: 3 Seasons of Tatiana Maslanys</title>
+    <title>Orphan Black clone tracker</title>
 
     <link href="lib/bootstrap.min.css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-    <!--link href="css/ob.css" rel="stylesheet"-->
+    <link href="css/ob.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
 
     <link href="font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -36,151 +36,301 @@
 </head>
 
 <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">ORPHAN BLACK: Data Analysis</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="social" target="_blank" href="http://twitter.com/intent/tweet?text=1244%20minutes%20of%20@orphanblack,%201188%20minutes%20of%20@tatianamaslany:%20http%3A%2F%2Fbit.ly%21FnvF0A"><i class="fa fa-twitter fa-2x"></i></a>
+                    </li>
+                    <li>
+                        <a class="social" href="https://github.com/hrecht/orphanblack-update"><i class="fa fa-github fa-2x"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
 
     <div class="container">
+        <div class="col-lg-10 col-lg-offset-1 intro">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+
+        <div class="col-lg-8 col-lg-offset-2">
+            <div id="linechart"></div>
+        </div>
+
         <div class="col-lg-12">
-            <h2>OB v2</h2>
+            <hr>
             <div id="overlap"></div>
             <hr>
 
             <div class="characters">
+
                 <div class="characterblock">
                     <div class="blocktitle">
                         <div class="name">Sarah Manning</div>
-                        <div id="epSarah" class="blocktext"></div>
-                        <div id="minSarah" class="blocktext"></div>
+                        <!--div id="epSarah" class="blocktext episodes"></div>
+                            <div id="minSarah" class="blocktext"></div-->
                     </div>
-                    <img src="img/sarah.png" class="headshot">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <img src="img/headshots/sarah2.jpg" class="headshot">
+                        </div>
 
-                    <div id="ganttSarah" class="gantt"></div>
+                        <div class="col-lg-5">
+                            <div id="ganttSarah" class="gantt"></div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div id="tableSarah"></div>
+                        </div>
+
+                        <!--div id="swapSarah" class="swap"></div-->
+                    </div>
                 </div>
+
                 <hr>
 
                 <div class="characterblock">
                     <div class="blocktitle">
                         <div class="name">Alison Hendrix</div>
-                        <div id="epAlison" class="blocktext"></div>
-                        <div id="minAlison" class="blocktext"></div>
                     </div>
-                    <img src="img/sarah.png" class="headshot">
 
-                    <div id="ganttAlison" class="gantt"></div>
-                </div>
-                <hr>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <img src="img/headshots/alison.jpg" class="headshot">
+                        </div>
 
-                <div class="characterblock">
-                    <div class="blocktitle">
-                        <div class="name">Cosima Niehaus</div>
-                        <div id="epCosima" class="blocktext"></div>
-                        <div id="minCosima" class="blocktext"></div>
+                        <div class="col-lg-5">
+                            <div id="ganttAlison" class="gantt"></div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div id="tableAlison"></div>
+                        </div>
                     </div>
-                    <img src="img/sarah.png" class="headshot">
-
-                    <div id="ganttCosima" class="gantt"></div>
-                </div>
-                <hr>
-
-                <div class="characterblock">
-                    <div class="blocktitle">
-                        <div class="name">Helena</div>
-                        <div id="epHelena" class="blocktext"></div>
-                        <div id="minHelena" class="blocktext"></div>
-                    </div>
-                    <img src="img/sarah.png" class="headshot">
-
-                    <div id="ganttHelena" class="gantt"></div>
-                </div>
-                <hr>
-
-                <div class="characterblock">
-                    <div class="blocktitle">
-                        <div class="name">Rachel Duncan</div>
-                        <div id="epRachel" class="blocktext"></div>
-                        <div id="minRachel" class="blocktext"></div>
-                    </div>
-                    <img src="img/sarah.png" class="headshot">
-
-                    <div id="ganttRachel" class="gantt"></div>
-                </div>
-                <hr>
-
-                <div class="characterblock">
-                    <div class="blocktitle">
-                        <div class="name">Krystal Goderitch</div>
-                        <div id="epKrystal" class="blocktext"></div>
-                        <div id="minKrystal" class="blocktext"></div>
-                    </div>
-                    <img src="img/sarah.png" class="headshot">
-                    
-                    <div id="ganttKrystal" class="gantt"></div>
-                </div>
-                <hr>
-
-                <div class="characterblock">
-                    <div class="blocktitle">
-                        <div class="name">Beth Childs</div>
-                        <div id="epBeth" class="blocktext"></div>
-                        <div id="minBeth" class="blocktext"></div>
-                    </div>
-                    <img src="img/sarah.png" class="headshot">
-
-                    <div id="ganttBeth" class="gantt"></div>
-                </div>
-                <hr>
-
-                <div class="characterblock">
-                    <div class="blocktitle">
-                        <div class="name">Katja Obinger</div>
-                        <div id="epKatja" class="blocktext"></div>
-                        <div id="minKatja" class="blocktext"></div>
-                    </div>
-                    <img src="img/sarah.png" class="headshot">
-
-                    <div id="ganttKatja" class="gantt"></div>
-                </div>
-                <hr>
-
-                <div class="characterblock">
-                    <div class="blocktitle">
-                        <div class="name">Tony Sawicki</div>
-                        <div id="epTony" class="blocktext"></div>
-                        <div id="minTony" class="blocktext"></div>
-                    </div>
-                    <img src="img/sarah.png" class="headshot">
-
-                    <div id="ganttTony" class="gantt"></div>
                     <hr>
-                </div>
-            </div>
 
+                    <div class="characterblock">
+                        <div class="blocktitle">
+                            <div class="name">Cosima Niehaus</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <img src="img/headshots/cosima.jpg" class="headshot">
+                            </div>
+
+                            <div class="col-lg-5">
+                                <div id="ganttCosima" class="gantt"></div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div id="tableCosima"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="characterblock">
+                        <div class="blocktitle">
+                            <div class="name">Helena</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <img src="img/headshots/helena.jpg" class="headshot">
+                            </div>
+
+                            <div class="col-lg-5">
+                                <div id="ganttHelena" class="gantt"></div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div id="tableHelena"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="characterblock">
+                        <div class="blocktitle">
+                            <div class="name">Rachel Duncan</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <img src="img/headshots/rachel.jpg" class="headshot">
+                            </div>
+
+                            <div class="col-lg-5">
+                                <div id="ganttRachel" class="gantt"></div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div id="tableRachel"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="characterblock">
+                        <div class="blocktitle">
+                            <div class="name">Krystal Goderitch</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <img src="img/sarah.png" class="headshot">
+                            </div>
+
+                            <div class="col-lg-5">
+                                <div id="ganttKrystal" class="gantt"></div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div id="tableKrystal"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="characterblock">
+                        <div class="blocktitle">
+                            <div class="name">Beth Childs</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <img src="img/headshots/beth.jpg" class="headshot">
+                            </div>
+
+                            <div class="col-lg-5">
+                                <div id="ganttBeth" class="gantt"></div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div id="tableBeth"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="characterblock">
+                        <div class="blocktitle">
+                            <div class="name">Katja Obinger</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <img src="img/sarah.png" class="headshot">
+                            </div>
+
+                            <div class="col-lg-5">
+                                <div id="ganttKatja" class="gantt"></div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div id="tableKatja"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="characterblock">
+                        <div class="blocktitle">
+                            <div class="name">Tony Sawicki</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <img src="img/sarah.png" class="headshot">
+                            </div>
+
+                            <div class="col-lg-5">
+                                <div id="ganttTony" class="gantt"></div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div id="tableTony"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="characterblock">
+                        <div class="blocktitle">
+                            <div class="name">Dead</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="blocktitle">Aryanna Giordano</div>
+                                <img src="img/sarah.png" class="headshot">
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="blocktitle">Janika Zingler</div>
+                                <img src="img/sarah.png" class="headshot">
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="blocktitle">Danielle Fournier</div>
+                                <img src="img/sarah.png" class="headshot">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
 
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div id="about" class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="footer">About</h3>
+                    <p class="about">The data for this page were collected using a strict, consistent, and highly enjoyable but not peer-reviewed method of rewatching every episode with a spreadsheet open and one hand on the pause button. Scene changes or other breaks less than 10 seconds were ignored. Recaps, title scenes, credits, and previews were excluded from analysis.</p>
+                    <p class="about">I collected started this project before season two's premiere. I decided to exclude home videos and corpses (RIP Beth and Katja) because including those scenes often repeated footage and also made it appear that Beth was alive and kicking in several episodes. For consistency, Jennifer's home videos in season two had to be treated equally and therefore her scenes are not included in this analysis.</p>
+                    <p class="about">&copy; <a href="http://hrecht.github.io/">Hannah Recht</a>, 2016. View the data and code on <a href="https://github.com/hrecht/orphanblack-update">Github</a>. For questions or comments or theories about Beth Childs, contact me on <a href="https://twitter.com/hannah_recht">Twitter</a>. And if you've somehow read this far but yet haven't watched the show, go check it out RIGHT NOW.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
-        <script type="text/javascript" src="lib/jquery-2.2.3.min.js"></script>
-        <script type="text/javascript" src="lib/d3.v3.min.js"></script>
-        <script type="text/javascript" src="lib/bootstrap.min.js"></script>
-        <script type="text/javascript" src="lib/modernizr.svg.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="lib/d3.v3.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/modernizr.svg.min.js"></script>
 
-        <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 
 
-        <script>
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-            ga('create', 'UA-60498967-1', 'auto');
-            ga('send', 'pageview');
-        </script>
+        ga('create', 'UA-60498967-1', 'auto');
+        ga('send', 'pageview');
+    </script>
 
 </body>
 

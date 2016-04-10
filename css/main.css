@@ -6,6 +6,12 @@ html {
     font-size: 14px;
 }
 
+hr {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+/* character blocks */
 .gantt,
 .blocktext,
 .name,
@@ -26,26 +32,64 @@ img.headshot {
 
 .blocktitle {
     margin-bottom: 1em;
-}
-
-.blocktext {
     text-transform: uppercase;
-    margin-right: 100px;
-    font-size: 15px;
     font-weight: 100;
+    font-size: 20px;
 }
 
 .name {
-    font-size: 20px;
-    font-weight: 100;
     width: 40%;
+}
+
+.blocktext {
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 15px;
+}
+
+.episodes {
+    border-right: 1px solid #333;
+}
+
+.swap {
+    font-size: 15px;
+}
+
+/* table */
+table {
+    margin-top: 0.5em;
+    table-layout: fixed;
+    width: 100%;
+    font-weight: 100;
     text-transform: uppercase;
+}
+
+th, td {
+    text-align: left;
+    padding-bottom: 6px;
+}
+
+.rowname {
+    width: 140px;
+}
+
+tr {
+    /*border-bottom: 1px solid #eee;*/
+}
+
+/* chart divs */
+#linechart {
+    max-width: 700px;
+    
 }
 
 .gantt {
     height: 300px;
     margin-left: 10px;
 }
+
+
+/* chart elements */
 
 .axis,
 .axis-show {
@@ -56,6 +100,15 @@ img.headshot {
 .axis path {
     display: none;
 }
+
+.axis-show path,
+.axis-show line {
+    fill: none;
+    stroke-width: 1px;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
 
 .axis line {
     stroke: #000;
@@ -87,6 +140,13 @@ img.headshot {
     shape-rendering: crispEdges;
 }
 
+.seasonlight {
+    fill: none;
+    stroke-width: 1px;
+    stroke: #afafaf;
+    shape-rendering: crispEdges;
+}
+
 .seasonlabel {
     font-size: 14px;
 }
@@ -114,6 +174,13 @@ text.legend {
 .charttitle {
     font-size: 15px;
 }
+
+.chartline {
+    fill: none;
+    stroke-width: 1px;
+    stroke: #b4b4b4;
+}
+
 
 
 /*.bar:hover {

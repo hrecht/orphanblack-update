@@ -8,9 +8,11 @@ library("jsonlite")
 
 ob <- read.csv("data/obtimes.csv", header=T, stringsAsFactors=F)
 totaltime <- read.csv("data/totaltime.csv", header=T, stringsAsFactors=F)
+charmeta <- read.csv("data/charactermeta.csv", header=T, stringsAsFactors=F)
 
-#Add a cloneswap variable
-ob <- ob %>% mutate(cloneswap = ifelse(character != charas, 1, 0))
+#Add a cloneswap variable and minutes
+ob <- ob %>% mutate(cloneswap = ifelse(character != charas, 1, 0)) %>%
+  mutate(minutes = tottime/60)
 write.csv(ob, "data/obtimes.csv", row.names=F, na="")
 
 objs <- ob %>% select(episode, startmin, stopmin, character, charas, cloneswap)
@@ -19,9 +21,9 @@ write(objson, "data/obtimes.json")
 
 #Collapse to get minutes by character & episode
 timebyep <- ob %>% group_by(episode, character) %>%
-  summarize(minutes = sum(tottime)/60)
+  summarize(minutes = sum(minutes))
 temp <- ob %>% group_by(episode) %>%
-  summarize(minutes = sum(tottime)/60) %>% 
+  summarize(minutes = sum(minutes)) %>% 
   mutate(character = "All Tatiana Maslany Clones")
 timebyep <- rbind(timebyep, temp)
 rm(temp)
@@ -33,19 +35,14 @@ chartable <- timebyep %>% mutate(p = 1) %>%
   group_by(character) %>%
   summarize(episodesin = sum(p),
           minutes = sum(minutes)) %>%
-  arrange(desc(minutes)) %>%
-  mutate(cloneswaps = ifelse(character=="Sarah", "Beth, Katja, Alison, Cosima, Rachel",
-                  ifelse(character=="Alison" | character=="Rachel", "Sarah",
-                         ifelse(character=="Cosima", "Alison",
-                                ifelse(character=="Helena", "Sarah as Beth, Sarah, Alison", ""              
-                                )))))
+  arrange(desc(minutes)) 
+chartable <- left_join(charmeta, chartable, by="character")
+write.csv(chartable, file="data/charactertable.csv", row.names=FALSE)
 
 #Get total screen time by clone & cloneswap
 cloneswap <- ob %>% group_by(character, charas) %>%
-  summarize(minutes = sum(tottime)/60) %>%
+  summarize(minutes = sum(minutes)) %>%
   filter(character != charas)
-
-write.csv(chartable, file="data/charactertable.csv", row.names=FALSE)
 
 sum(totaltime$epmin)
 sum(totaltime$tmasmin)
