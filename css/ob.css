@@ -86,6 +86,9 @@ footer h3 {
 }
 
 @media(max-width:767px) {
+    .navbar-brand {
+        font-size: 16px;
+    }
     .navbar {
         height: auto;
     }

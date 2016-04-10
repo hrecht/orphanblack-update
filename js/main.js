@@ -1,4 +1,4 @@
-var MOBILE_THRESHOLD = 600;
+var MOBILE_THRESHOLD = 700;
 var isMobile = false;
 var data;
 var main_data_url = "data/obtimes.csv";
@@ -100,12 +100,17 @@ function overlap() {
             numticks = 9,
             isMobile = false;
     } else {
-        var chart_aspect_height = 1.8;
+        if ($overlap.width() >= 450) {
+            //not so tall on larger small screens
+            var chart_aspect_height = 1.2;
+        } else {
+            var chart_aspect_height = 2.2;
+        }
         var margin = {
                 top: 70,
                 right: 20,
                 bottom: 40,
-                left: 40
+                left: 60
             },
             numticks = 4,
             isMobile = true;
@@ -144,6 +149,13 @@ function overlap() {
     var yAxis = d3.svg.axis()
         .scale(y)
         .tickSize(0)
+        .tickFormat(function (d) {
+            if (isMobile) {
+                return "";
+            } else {
+                return d;
+            }
+        })
         .orient("left");
 
     var gx = svg.append("g")
@@ -162,34 +174,6 @@ function overlap() {
         .append("g")
         .attr("class", "overlapbar");
 
-    bars.append("rect")
-        .attr("opacity", 0.4)
-        .attr("class", function (d) {
-            return d.character;
-        })
-        .attr("y", function (d) {
-            return y(d.episode);
-        })
-        .attr("height", y.rangeBand())
-        .attr("x", function (d) {
-            return x(d.startmin);
-        })
-        .attr("width", function (d) {
-            return x(d.stopmin) - x(d.startmin);
-        })
-        .on("mouseover", function (d) {
-            d3.selectAll("." + d3.select(this).attr("class"))
-                .classed("selected", true);
-        })
-        .on("mouseout", function (d) {
-            d3.selectAll(".selected")
-                .classed("selected", false);
-        })
-        .on("mouseleave", function (d) {
-            d3.selectAll(".selected")
-                .classed("selected", false);
-        });
-
     var gy = svg.append("g")
         .attr("class", "y axis")
         .call(yAxis);
@@ -198,14 +182,6 @@ function overlap() {
         .attr("dx", -4);
 
     //axis labels
-    svg.append("g")
-        .append("text")
-        .attr("class", "axistitle")
-        .attr("x", -15)
-        .attr("y", -10)
-        .text(function (d) {
-            return "Episode";
-        });
     svg.append("g")
         .append("text")
         .attr("class", "axistitle")
@@ -238,10 +214,16 @@ function overlap() {
     var seasonlab = svg.selectAll(".seasonlabel")
         .data(SEASONS)
         .enter()
-        .append("g")
-        .attr("class", "seasonlabel");
+        .append("g");
 
     seasonlab.append("text")
+        .attr("class", function () {
+            if (isMobile) {
+                return "label-small";
+            } else {
+                return "seasonlab";
+            }
+        })
         .attr("x", -margin.left)
         .attr("y", function (d, i) {
             return y(10 * i + 5) + y.rangeBand();
@@ -252,6 +234,45 @@ function overlap() {
 
     if (!isMobile) {
 
+        svg.append("g")
+            .append("text")
+            .attr("class", "axistitle")
+            .attr("x", -15)
+            .attr("y", -10)
+            .text(function (d) {
+                return "Episode";
+            });
+
+        //bars with mouseover
+        bars.append("rect")
+            .attr("opacity", 0.4)
+            .attr("class", function (d) {
+                return d.character;
+            })
+            .attr("y", function (d) {
+                return y(d.episode);
+            })
+            .attr("height", y.rangeBand())
+            .attr("x", function (d) {
+                return x(d.startmin);
+            })
+            .attr("width", function (d) {
+                return x(d.stopmin) - x(d.startmin);
+            })
+            .on("mouseover", function (d) {
+                d3.selectAll("." + d3.select(this).attr("class"))
+                    .classed("selected", true);
+            })
+            .on("mouseout", function (d) {
+                d3.selectAll(".selected")
+                    .classed("selected", false);
+            })
+            .on("mouseleave", function (d) {
+                d3.selectAll(".selected")
+                    .classed("selected", false);
+            });
+
+        //legend showing each character's name
         var legend = svg.selectAll("g.legend")
             .data(CHARACTERS)
             .enter()
@@ -298,6 +319,66 @@ function overlap() {
             .text(function (d, i) {
                 return CHARACTERS[i];
             });
+    } else {
+
+        //no mouse events
+        bars.append("rect")
+            .attr("opacity", 0.4)
+            .attr("class", function (d) {
+                return d.character;
+            })
+            .attr("y", function (d) {
+                return y(d.episode);
+            })
+            .attr("height", y.rangeBand())
+            .attr("x", function (d) {
+                return x(d.startmin);
+            })
+            .attr("width", function (d) {
+                return x(d.stopmin) - x(d.startmin);
+            });
+
+        //legend showing number of clones
+        var legend = svg.selectAll("g.legend")
+            .data([1, 2, 3, 4])
+            .enter()
+            .append("g");
+
+        var l_w = 40,
+            l_h = 20;
+
+        legend.append("rect")
+            .attr("x", function (d, i) {
+                return (i * l_w);
+            })
+            .attr("y", -50)
+            .attr("width", 30)
+            .attr("height", l_h)
+            .attr("class", "moblegendbar")
+            .attr("opacity", function (d, i) {
+                return (i * 0.16) + 0.4;
+            });
+
+        legend.append("text")
+            .attr("x", function (d, i) {
+                return (i * l_w) + 15;
+            })
+            .attr("y", -36)
+            .attr("text-anchor", "middle")
+            .attr("class", "legendmob")
+            .text(function (d) {
+                return d;
+            });
+
+
+        svg.append("g")
+            .append("text")
+            .attr("class", "axistitle")
+            .attr("x", 0)
+            .attr("y", -58)
+            .text(function (d) {
+                return "Number of clones";
+            });
     }
 }
 
@@ -323,7 +404,7 @@ function linechart() {
     } else {
         var chart_aspect_height = 1.2;
         var margin = {
-                top: 70,
+                top: 100,
                 right: 20,
                 bottom: 40,
                 left: 25
@@ -605,7 +686,6 @@ function linechart() {
             .text(function (d, i) {
                 return LINELABELS[i];
             });
-
     }
 
     function mousemove() {

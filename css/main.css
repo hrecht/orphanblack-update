@@ -11,6 +11,10 @@ hr {
     margin-bottom: 35px;
 }
 
+img.social {
+    height: 24px;
+    width: auto;
+}
 
 /* character blocks */
 
@@ -70,6 +74,7 @@ img.headshot {
 
 table {
     margin-top: 15px;
+    margin-left: 20px;
     table-layout: fixed;
     width: 100%;
     font-weight: 100;
@@ -100,7 +105,8 @@ tr {
 
 .gantt {
     height: 300px;
-    margin-left: 10px;
+    margin-left: 20px;
+    margin-right: 10px;
 }
 
 
@@ -198,6 +204,10 @@ text.legend {
 .legendmob {
     fill: #fff;
     font-size: 11px;
+}
+
+.moblegendbar {
+    fill: #1B3536;
 }
 
 .label-small {
