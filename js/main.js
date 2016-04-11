@@ -701,10 +701,10 @@ function linechart() {
         focus.attr("transform", "translate(" + x(d.episode) + "," + y(d.tmasmin) + ")");
 
         focus.select("text#tipep")
-            .html("Episode " + d.episode);
+            .text("Episode " + d.episode);
 
         focus.select("text#tipmin")
-            .html(formatNum(d.tmasmin) + " minutes");
+            .text(formatNum(d.tmasmin) + " minutes");
     }
 
 }
