@@ -12,24 +12,33 @@ hr {
 }
 
 #linechart {
-    padding-top: 15px;
+    padding-top: 10px;
     padding-bottom: 20px;
 }
 
 #overlap {
     padding-top: 20px;
 }
+
+img.fallback {
+    max-width: 100%;
+    height: auto;
+}
 /* headline numbers */
 
 #mainnumbers {
     font-size: 20px;
-    margin-bottom: 1em;
+    margin-bottom: 10px;
     font-weight: 300;
 }
 
 .blocknum {
     font-size: 26px;
     display: inline-block;
+}
+
+#ganttSarah {
+    width: 100%;
 }
 
 
