@@ -24,6 +24,8 @@ img.fallback {
     max-width: 100%;
     height: auto;
 }
+
+
 /* headline numbers */
 
 #mainnumbers {
@@ -264,5 +266,11 @@ text.legend {
         max-width: 100%;
         margin-right: 20px;
         margin-bottom: 10px;
+    }
+}
+
+@media(max-width:600px) {
+    .seasonlabel {
+        font-size: 12px;
     }
 }

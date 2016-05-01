@@ -410,7 +410,7 @@ function linechart() {
         var chart_aspect_height = 1.4;
         var margin = {
                 top: 70,
-                right: 20,
+                right: 25,
                 bottom: 40,
                 left: 25
             },
