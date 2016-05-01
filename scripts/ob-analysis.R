@@ -5,7 +5,6 @@
 library("readxl")
 library("dplyr")
 library("tidyr")
-library("jsonlite")
 
 # Main data: 1 row per character appearance
 ob <- read.csv("data/obtimes.csv", header=T, stringsAsFactors=F)
@@ -72,19 +71,15 @@ makeEpisodeRow <- function(dt) {
 # Add new episodes to full series dataset, total time dataset
 ########################################################################################################
 
-ep31 <- read_excel("data/obs4.xlsx", sheet="ep31")
-ep31 <- formatEpisode(ep31)
-row31 <- makeEpisodeRow(ep31)
+ep32 <- read_excel("data/obs4.xlsx", sheet="ep32")
+ep32 <- formatEpisode(ep32)
+row32 <- makeEpisodeRow(ep32)
 
-ep33 <- read_excel("data/obs4.xlsx", sheet="ep33")
-ep33 <- formatEpisode(ep33)
-row33 <- makeEpisodeRow(ep33)
-
-ob <- rbind(ob, ep31)
+ob <- rbind(ob, ep32)
 ob <- ob %>% arrange(episode, startsec)
 write.csv(ob, "data/obtimes.csv", row.names=F, na="")
 
-totaltime <- rbind(totaltime, row31)
+totaltime <- rbind(totaltime, row32)
 totaltime <- totaltime %>% arrange(episode)
 write.csv(totaltime, "data/totaltime.csv", row.names=F, na="")
 
@@ -111,7 +106,7 @@ chartable <- timebyep %>% group_by(character) %>%
 chartable <- left_join(charmeta, chartable, by="character")
 chartable <- chartable %>% arrange(desc(minutes)) 
 
-write.csv(chartable, file="data/charactertable.csv", row.names=FALSE)
+write.csv(chartable, file="data/charactertable.csv", row.names=F, na="")
 
 ########################################################################################################
 # Miscellaneous data

@@ -143,7 +143,7 @@ function overlap() {
     var xAxis = d3.svg.axis()
         .scale(x)
         .tickSize(height)
-        .tickFormat(formatXAxis)
+        //.tickFormat(formatXAxis)
         .orient("bottom")
         .ticks(numticks);
 
@@ -191,7 +191,7 @@ function overlap() {
         })
         .attr("y", height + 30)
         .text(function (d) {
-            return "Timeline of episode";
+            return "Timeline of episode (minutes)";
         });
 
     var seasonline = svg.selectAll(".seasonline")
@@ -800,26 +800,10 @@ function ganttcharacters() {
         .attr("class", "y axis-show")
         .call(yAxis);
 
-    /*var xAxis = d3.svg.axis()
-        .scale(x)
-        .tickSize(height)
-        .tickFormat(formatXAxis)
-        .orient("bottom")
-        .ticks(numticks);
-
-    var gx = svg.append("g")
-        .attr("class", "x axis")
-        .call(xAxis);
-
-    gx.selectAll("g").filter(function (d) {
-            return d;
-        })
-        .classed("minor", true);*/
-
     var xAxis = d3.svg.axis()
         .scale(x)
         .orient("bottom")
-        .tickFormat(formatXAxis)
+        .tickFormat(formatNum)
         .ticks(numticks);
 
     var gx = svg.append("g")
@@ -870,9 +854,9 @@ function ganttcharacters() {
         .attr("x", function (d) {
             return x(0);
         })
-        .attr("y", height + 30)
+        .attr("y", height + 32)
         .text(function (d) {
-            return "Timeline of episode";
+            return "Timeline of episode (minutes)";
         });
 
     var bars = svg.selectAll(".bar")
