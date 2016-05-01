@@ -68,19 +68,23 @@ makeEpisodeRow <- function(dt) {
   eprow <- left_join(eprow, titles, by="episode")
 }
 
-ep33 <- read_excel("data/obs4.xlsx", sheet="ep33")
-ep33 <- formatEpisode(ep33)
-row33 <- makeEpisodeRow(ep33)
-
 ########################################################################################################
 # Add new episodes to full series dataset, total time dataset
 ########################################################################################################
 
-ob <- rbind(ob, ep33)
+ep31 <- read_excel("data/obs4.xlsx", sheet="ep31")
+ep31 <- formatEpisode(ep31)
+row31 <- makeEpisodeRow(ep31)
+
+ep33 <- read_excel("data/obs4.xlsx", sheet="ep33")
+ep33 <- formatEpisode(ep33)
+row33 <- makeEpisodeRow(ep33)
+
+ob <- rbind(ob, ep31)
 ob <- ob %>% arrange(episode, startsec)
 write.csv(ob, "data/obtimes.csv", row.names=F, na="")
 
-totaltime <- rbind(totaltime, row33)
+totaltime <- rbind(totaltime, row31)
 totaltime <- totaltime %>% arrange(episode)
 write.csv(totaltime, "data/totaltime.csv", row.names=F, na="")
 
@@ -102,10 +106,10 @@ write.csv(timebyep, file="data/chartimebyep.csv", row.names=F, na="")
 #Data for table: total time by character, # of episodes, cloneswaps
 chartable <- timebyep %>% group_by(character) %>%
   summarize(episodesin = n(),
-          minutes = sum(minutes)) %>%
-  arrange(desc(minutes)) 
+          minutes = sum(minutes))
 
 chartable <- left_join(charmeta, chartable, by="character")
+chartable <- chartable %>% arrange(desc(minutes)) 
 
 write.csv(chartable, file="data/charactertable.csv", row.names=FALSE)
 
