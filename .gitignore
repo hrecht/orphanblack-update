@@ -3,3 +3,4 @@ img/headshots/
 *.Rproj.user
 *.Rhistory
 .Rproj.user
+*.xlsx

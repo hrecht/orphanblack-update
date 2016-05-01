@@ -8,9 +8,9 @@ var $overlap = $('#overlap');
 var $ganttSarah = $('#ganttSarah');
 var $linechart = $('#linechart');
 var formatNum = d3.format(',.0f');
-var SEASONS = [1, 2, 3];
-var CHARACTERS = ["Sarah", "Alison", "Cosima", "Helena", "Rachel", "Krystal", "Beth", "Katja", "Tony"];
-var CHARACTERS_GANTT = ["Sarah", "Alison", "Cosima", "Helena", "Rachel", "Krystal", "Beth"];
+var SEASONS = [1, 2, 3, 4];
+var CHARACTERS = ["Sarah", "Alison", "Cosima", "Helena", "Rachel", "Beth", "MK", "Krystal", "Katja", "Tony"];
+var CHARACTERS_GANTT = ["Sarah", "Alison", "Cosima", "Helena", "Rachel", "Beth", "MK", "Krystal"];
 var LINELABELS = ["Episode length", "Tatiana Maslany screen time"];
 var COLORS = ["#a78fa3", "#185a52"];
 
@@ -195,7 +195,7 @@ function overlap() {
         });
 
     var seasonline = svg.selectAll(".seasonline")
-        .data([11, 21])
+        .data([11, 21, 31])
         .enter()
         .append("g")
         .attr("class", "seasonline");
@@ -227,7 +227,11 @@ function overlap() {
         })
         .attr("x", -margin.left)
         .attr("y", function (d, i) {
-            return y(10 * i + 5) + y.rangeBand();
+            if (d < 4) {
+                return y(10 * i + 5) + y.rangeBand();
+            } else {
+                return y(10 * i + 3) + y.rangeBand();
+            }
         })
         .text(function (d) {
             return "Season " + d;
@@ -499,14 +503,18 @@ function linechart() {
         .attr("text-anchor", "middle")
         .attr("y", height + 20)
         .attr("x", function (d, i) {
-            return x(10 * i + 5);
+            if (d < 4) {
+                return x(10 * i + 5);
+            } else {
+                return width;
+            }
         })
         .text(function (d) {
             return "Season " + d;
         })
 
     var seasonline = svg.selectAll(".seasonline")
-        .data([10.5, 20.5])
+        .data([10.5, 20.5, 30.5])
         .enter()
         .append("g")
         .attr("class", "seasonlight");
@@ -589,7 +597,7 @@ function linechart() {
         .attr("class", "dot");
 
     dots.append("circle")
-        .attr("r", 2)
+        .attr("r", 3)
         .attr("cx", function (d) {
             return x(d.episode);
         })
@@ -712,7 +720,7 @@ function linechart() {
 function ganttcharacters() {
 
     data = data_main.filter(function (d) {
-        return d.character == "Sarah" | d.character == "Alison" | d.character == "Cosima" | d.character == "Helena" | d.character == "Rachel" | d.character == "Krystal" | d.character == "Beth";
+        return d.character == "Sarah" | d.character == "Alison" | d.character == "Cosima" | d.character == "Helena" | d.character == "Rachel" | d.character == "Krystal" | d.character == "Beth" | d.character == "MK";
     });
 
     data.forEach(function (d) {
@@ -741,7 +749,7 @@ function ganttcharacters() {
 
     var width = Math.min((400 - margin.left - margin.right), ($ganttSarah.width() - margin.left - margin.right)),
         height = 300 - margin.top - margin.bottom;
-    
+
     var y = d3.scale.ordinal()
         .rangeRoundBands([0, height], .05)
         .domain(data.map(function (d) {
@@ -820,7 +828,7 @@ function ganttcharacters() {
         .call(xAxis);
 
     var seasonline = svg.selectAll(".seasonline")
-        .data([11, 21])
+        .data([11, 21, 31])
         .enter()
         .append("g")
         .attr("class", "seasonline");
@@ -846,7 +854,11 @@ function ganttcharacters() {
     seasonlab.append("text")
         .attr("x", -margin.left)
         .attr("y", function (d, i) {
-            return y(10 * i + 5) + y.rangeBand();
+            if (d < 4) {
+                return y(10 * i + 5) + y.rangeBand();
+            } else {
+                return height;
+            }
         })
         .text(function (d) {
             return "Season " + d;
