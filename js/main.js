@@ -5,6 +5,7 @@ var main_data_url = "data/obtimes.csv";
 var char_data_url = "data/charactertable.csv";
 var total_data_url = "data/totaltime.csv";
 var $overlap = $('#overlap');
+var $ganttSarah = $('#ganttSarah');
 var $linechart = $('#linechart');
 var formatNum = d3.format(',.0f');
 var SEASONS = [1, 2, 3];
@@ -104,7 +105,7 @@ function overlap() {
             //not so tall on larger small screens
             var chart_aspect_height = 1.2;
         } else {
-            var chart_aspect_height = 2.2;
+            var chart_aspect_height = 2.3;
         }
         var margin = {
                 top: 70,
@@ -402,9 +403,9 @@ function linechart() {
             },
             isMobile = false;
     } else {
-        var chart_aspect_height = 1.2;
+        var chart_aspect_height = 1.4;
         var margin = {
-                top: 100,
+                top: 70,
                 right: 20,
                 bottom: 40,
                 left: 25
@@ -700,10 +701,10 @@ function linechart() {
         focus.attr("transform", "translate(" + x(d.episode) + "," + y(d.tmasmin) + ")");
 
         focus.select("text#tipep")
-            .html("Episode " + d.episode);
+            .text("Episode " + d.episode);
 
         focus.select("text#tipmin")
-            .html(formatNum(d.tmasmin) + " minutes");
+            .text(formatNum(d.tmasmin) + " minutes");
     }
 
 }
@@ -738,9 +739,9 @@ function ganttcharacters() {
     };
     var numticks = 4;
 
-    var width = Math.min((400 - margin.left - margin.right), ($overlap.width() - margin.left - margin.right)),
+    var width = Math.min((400 - margin.left - margin.right), ($ganttSarah.width() - margin.left - margin.right)),
         height = 300 - margin.top - margin.bottom;
-
+    
     var y = d3.scale.ordinal()
         .rangeRoundBands([0, height], .05)
         .domain(data.map(function (d) {

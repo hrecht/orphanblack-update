@@ -12,24 +12,33 @@ hr {
 }
 
 #linechart {
-    padding-top: 15px;
+    padding-top: 10px;
     padding-bottom: 20px;
 }
 
 #overlap {
     padding-top: 20px;
 }
+
+img.fallback {
+    max-width: 100%;
+    height: auto;
+}
 /* headline numbers */
 
 #mainnumbers {
     font-size: 20px;
-    margin-bottom: 1em;
-    font-weight: 100;
+    margin-bottom: 10px;
+    font-weight: 300;
 }
 
 .blocknum {
     font-size: 26px;
     display: inline-block;
+}
+
+#ganttSarah {
+    width: 100%;
 }
 
 
@@ -59,7 +68,7 @@ img.headshot {
 
 .trackertitle {
     text-transform: uppercase;
-    font-weight: 100;
+    font-weight: 300;
     font-size: 26px;
     margin-bottom: 1em;
     text-align: center;
@@ -67,17 +76,16 @@ img.headshot {
 
 .blocktitle {
     text-transform: uppercase;
-    font-weight: 100;
+    font-weight: 300;
     font-size: 20px;
 }
 
 .name {
-    width: 40%;
     margin-bottom: 12px;
 }
 
 .blocktext {
-    font-weight: 100;
+    font-weight: 300;
     font-size: 14px;
     margin-bottom: 6px;
     text-transform: uppercase;
@@ -91,7 +99,7 @@ table {
     margin-left: 20px;
     table-layout: fixed;
     width: 100%;
-    font-weight: 100;
+    font-weight: 300;
     font-size: 14px;
     text-transform: uppercase;
 }
