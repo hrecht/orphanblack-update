@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@hannah_recht">
+    <meta name="twitter:creator" content="@hannah_recht">
+    <meta name="twitter:title" content="Analyzing Orphan Black: clone tracker">
+    <meta name="twitter:description" content="There have been 30 episodes and 1,244 minutes of Orphan Black, featuring 1,188 minutes of Tatiana Maslanys.">
+    <meta name="twitter:image" content="http://hrecht.github.io/orphanblack-update/img/social2.png">
+
+    <meta property="og:url" content="http://hrecht.github.io/orphanblack-update/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Analyzing Orphan Black: clone tracker" />
+    <meta property="og:description" content="There have been 30 episodes and 1,244 minutes of Orphan Black, featuring 1,188 minutes of Tatiana Maslanys." />
+    <meta property="og:image" content="http://hrecht.github.io/orphanblack-update/img/social.png" />
+
+    <title>Orphan Black clone tracker</title>
+
+    <link href="lib/bootstrap.min.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <link href="css/ob.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">ORPHAN BLACK: Data Analysis</div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#characters">Characters</a>
+                    </li>
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/hrecht/orphanblack-update">Source</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 intro">
+                <h2>Miscellaneous graphs about Orphan Black</h2>
+                <div id="barcharts"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div id="about" class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="footer">About</h3>
+                    <p class="about">The data for this analysis was collected using a strict, consistent, and highly enjoyable but not peer-reviewed method of rewatching every episode with a spreadsheet open and one hand on the pause button. Scene changes or other breaks less than 10 seconds were ignored. Recaps, title scenes, credits, and previews were excluded from analysis. The data is as accurate as I could get, but use at your own risk.</p>
+                    <p class="about">I collected started this project before season two's premiere. I decided to exclude home videos and corpses (RIP Beth and Katja) because including those scenes often repeated footage and also made it appear that Beth was alive and kicking in several episodes. For consistency, Jennifer's appearances via video and autopsy in season two had to be treated equally and therefore her scenes are not included in this analysis.</p>
+                    <p class="about">Disclaimer: I have no affiliation with Orphan Black, Temple Street, BBC America, Space, or any other organization connected with the show. Photo originals credit to BBC America.</p>
+                    <p class="about">&copy; <a href="http://hrecht.github.io/">Hannah Recht</a>, 2016. View the data and code on <a href="https://github.com/hrecht/orphanblack-update">Github</a>. For questions or comments or theories about Beth Childs, contact me on <a href="https://twitter.com/hannah_recht">Twitter</a>. And if you've somehow read this far but yet haven't watched the show, go check it out RIGHT NOW.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script type="text/javascript" src="lib/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="lib/d3.v3.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/modernizr.svg.min.js"></script>
+
+    <script type="text/javascript" src="js/miscellaneous.js"></script>
+
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-60498967-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+</body>
+
+</html>

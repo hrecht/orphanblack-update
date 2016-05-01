@@ -274,3 +274,12 @@ text.legend {
         font-size: 12px;
     }
 }
+
+/*miscellaneous graphs*/
+.episodebar {
+    fill: #407791;
+}
+
+.episodebar .selected {
+    fill: rgb(244, 244, 140);
+}
