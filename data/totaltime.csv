@@ -1,1 +1,32 @@
-episode,eptime,tattime,epmin,tmasmin,tmaspct,title1,2576,2361,42.93333333,39.35,0.916537267,Natural Selection2,2513,2586,41.88333333,43.1,1.029048946,Instinct3,2514,3260,41.9,54.33333333,1.296738266,Variations Under Nature4,2515,2893,41.91666667,48.21666667,1.150298211,Effects of External Conditions5,2531,2697,42.18333333,44.95,1.065586725,Conditions of Existence6,2513,2351,41.88333333,39.18333333,0.935535217,Variations Under Domestication7,2513,2167,41.88333333,36.11666667,0.862315957,Parts Developed in an Unusual Manner8,2515,2050,41.91666667,34.16666667,0.815109344,Entangled Bank9,2517,2669,41.95,44.48333333,1.060389352,Unconscious Selection10,2545,3035,42.41666667,50.58333333,1.192534381,Endless Forms Most Beautiful11,2431,2571,40.51666667,42.85,1.057589469,Nature Under Constraint and Vexed12,2474,2217,41.23333333,36.95,0.896119644,Governed by Sound Reason and True Religion13,2490,2017,41.5,33.61666667,0.810040161,Mingling Its Own Nature With It14,2465,2235,41.08333333,37.25,0.906693712,Governed as It Were by Chance15,2471,2315,41.18333333,38.58333333,0.936867665,Ipsa Scientia Potestas Est16,2458,2482,40.96666667,41.36666667,1.009764036,To Hound Nature in Her Wanderings17,2462,1989,41.03333333,33.15,0.807879773,"Knowledge Of Causes, And Secret Motion Of Things"18,2469,2461,41.15,41.01666667,0.996759822,Variable and Full of Perturbation19,2436,2273,40.6,37.88333333,0.933087028,Things Which Have Never Yet Been Done20,2483,3025,41.38333333,50.41666667,1.218284334,By Means Which Have Never Yet Been Tried21,2444,2687,40.73333333,44.78333333,1.099427169,The Weight of This Combination22,2496,1739,41.6,28.98333333,0.696714744,Transitory Sacrifices of Crisis23,2471,1584,41.18333333,26.4,0.641036018,"Formalized, Complex, and Costly"24,2468,2279,41.13333333,37.98333333,0.923419773,Newer Elements of Our Defense25,2466,2325,41.1,38.75,0.942822384,Scarred by Many Frustrations26,2459,1923,40.98333333,32.05,0.782025214,Certain Agony of the Battlefield27,2472,2395,41.2,39.91666667,0.968851133,Community of Dreadful Fear and Hate28,2472,2562,41.2,42.7,1.036407767,"Ruthless in Purpose, and Insidious in Method"29,2465,1758,41.08333333,29.3,0.713184584,Insolvent Phantom of Tomorrow30,2547,2393,42.45,39.88333333,0.93953671,History Yet to Be Written
+"episode","eptime","tattime","epmin","tmasmin","tmaspct","title"
+1,2576,2361,42.93333333,39.35,0.916537267,"Natural Selection"
+2,2513,2586,41.88333333,43.1,1.029048946,"Instinct"
+3,2514,3260,41.9,54.33333333,1.296738266,"Variations Under Nature"
+4,2515,2893,41.91666667,48.21666667,1.150298211,"Effects of External Conditions"
+5,2531,2697,42.18333333,44.95,1.065586725,"Conditions of Existence"
+6,2513,2351,41.88333333,39.18333333,0.935535217,"Variations Under Domestication"
+7,2513,2167,41.88333333,36.11666667,0.862315957,"Parts Developed in an Unusual Manner"
+8,2515,2050,41.91666667,34.16666667,0.815109344,"Entangled Bank"
+9,2517,2669,41.95,44.48333333,1.060389352,"Unconscious Selection"
+10,2545,3035,42.41666667,50.58333333,1.192534381,"Endless Forms Most Beautiful"
+11,2431,2571,40.51666667,42.85,1.057589469,"Nature Under Constraint and Vexed"
+12,2474,2217,41.23333333,36.95,0.896119644,"Governed by Sound Reason and True Religion"
+13,2490,2017,41.5,33.61666667,0.810040161,"Mingling Its Own Nature With It"
+14,2465,2235,41.08333333,37.25,0.906693712,"Governed as It Were by Chance"
+15,2471,2315,41.18333333,38.58333333,0.936867665,"Ipsa Scientia Potestas Est"
+16,2458,2482,40.96666667,41.36666667,1.009764036,"To Hound Nature in Her Wanderings"
+17,2462,1989,41.03333333,33.15,0.807879773,"Knowledge Of Causes, And Secret Motion Of Things"
+18,2469,2461,41.15,41.01666667,0.996759822,"Variable and Full of Perturbation"
+19,2436,2273,40.6,37.88333333,0.933087028,"Things Which Have Never Yet Been Done"
+20,2483,3025,41.38333333,50.41666667,1.218284334,"By Means Which Have Never Yet Been Tried"
+21,2444,2687,40.73333333,44.78333333,1.099427169,"The Weight of This Combination"
+22,2496,1739,41.6,28.98333333,0.696714744,"Transitory Sacrifices of Crisis"
+23,2471,1584,41.18333333,26.4,0.641036018,"Formalized, Complex, and Costly"
+24,2468,2279,41.13333333,37.98333333,0.923419773,"Newer Elements of Our Defense"
+25,2466,2325,41.1,38.75,0.942822384,"Scarred by Many Frustrations"
+26,2459,1923,40.98333333,32.05,0.782025214,"Certain Agony of the Battlefield"
+27,2472,2395,41.2,39.91666667,0.968851133,"Community of Dreadful Fear and Hate"
+28,2472,2562,41.2,42.7,1.036407767,"Ruthless in Purpose, and Insidious in Method"
+29,2465,1758,41.08333333,29.3,0.713184584,"Insolvent Phantom of Tomorrow"
+30,2547,2393,42.45,39.88333333,0.93953671,"History Yet to Be Written"
+33,2469,2450,41.15,40.8333333333333,0.992304576751721,"The Stigmata of Progress"
