@@ -230,7 +230,7 @@ function overlap() {
             if (d < 4) {
                 return y(10 * i + 5) + y.rangeBand();
             } else {
-                return y(10 * i + 3) + y.rangeBand();
+                return y(10 * i + 4) + y.rangeBand();
             }
         })
         .text(function (d) {
@@ -506,7 +506,7 @@ function linechart() {
             if (d < 4) {
                 return x(10 * i + 5);
             } else {
-                return width;
+                return x(10 * i + 2.5);
             }
         })
         .text(function (d) {
