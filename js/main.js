@@ -227,11 +227,7 @@ function overlap() {
         })
         .attr("x", -margin.left)
         .attr("y", function (d, i) {
-            if (d < 4) {
-                return y(10 * i + 5) + y.rangeBand();
-            } else {
-                return y(10 * i + 4) + y.rangeBand();
-            }
+            return y(10 * i + 5) + y.rangeBand();
         })
         .text(function (d) {
             return "Season " + d;
@@ -503,11 +499,7 @@ function linechart() {
         .attr("text-anchor", "middle")
         .attr("y", height + 20)
         .attr("x", function (d, i) {
-            if (d < 4) {
-                return x(10 * i + 5);
-            } else {
-                return x(10 * i + 2.5);
-            }
+            return x(10 * i + 5);
         })
         .text(function (d) {
             return "Season " + d;
@@ -838,11 +830,7 @@ function ganttcharacters() {
     seasonlab.append("text")
         .attr("x", -margin.left)
         .attr("y", function (d, i) {
-            if (d < 4) {
-                return y(10 * i + 5) + y.rangeBand();
-            } else {
-                return height;
-            }
+            return y(10 * i + 5) + y.rangeBand();
         })
         .text(function (d) {
             return "Season " + d;

@@ -71,15 +71,16 @@ makeEpisodeRow <- function(dt) {
 # Add new episodes to full series dataset, total time dataset
 ########################################################################################################
 
-ep34 <- read_excel("data/obs4.xlsx", sheet="ep34")
-ep34 <- formatEpisode(ep34)
-row34 <- makeEpisodeRow(ep34)
+ep37 <- read_excel("data/obs4.xlsx", sheet="ep37")
+ep37 <- formatEpisode(ep37)
+row37 <- makeEpisodeRow(ep37)
+#ep35 <- ep35 %>% filter(character != "END")
 
-ob <- rbind(ob, ep34)
+ob <- rbind(ob, ep37)
 ob <- ob %>% arrange(episode, startsec)
 write.csv(ob, "data/obtimes.csv", row.names=F, na="")
 
-totaltime <- rbind(totaltime, row34)
+totaltime <- rbind(totaltime, row37)
 totaltime <- totaltime %>% arrange(episode)
 write.csv(totaltime, "data/totaltime.csv", row.names=F, na="")
 
