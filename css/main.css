@@ -277,9 +277,9 @@ text.legend {
 
 /*miscellaneous graphs*/
 .episodebar {
-    fill: #407791;
+    fill: #467e77;
 }
 
 .episodebar .selected {
-    fill: rgb(244, 244, 140);
+    fill: #000000;
 }

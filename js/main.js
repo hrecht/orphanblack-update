@@ -209,7 +209,7 @@ function overlap() {
         })
         .attr("x1", -35)
         .attr("x2", function (d) {
-            return x(43);
+            return x(44);
         });
 
     var seasonlab = svg.selectAll(".seasonlabel")
@@ -818,7 +818,7 @@ function ganttcharacters() {
         })
         .attr("x1", -margin.left)
         .attr("x2", function (d) {
-            return x(43);
+            return x(44);
         });
 
     var seasonlab = svg.selectAll(".seasonlabel")

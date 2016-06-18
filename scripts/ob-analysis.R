@@ -71,16 +71,16 @@ makeEpisodeRow <- function(dt) {
 # Add new episodes to full series dataset, total time dataset
 ########################################################################################################
 
-ep37 <- read_excel("data/obs4.xlsx", sheet="ep37")
-ep37 <- formatEpisode(ep37)
-row37 <- makeEpisodeRow(ep37)
-#ep35 <- ep35 %>% filter(character != "END")
+ep40 <- read_excel("data/obs4.xlsx", sheet="ep40")
+ep40 <- formatEpisode(ep40)
+row40 <- makeEpisodeRow(ep40)
+#ep39 <- ep39 %>% filter(character != "END")
 
-ob <- rbind(ob, ep37)
+ob <- rbind(ob, ep40)
 ob <- ob %>% arrange(episode, startsec)
 write.csv(ob, "data/obtimes.csv", row.names=F, na="")
 
-totaltime <- rbind(totaltime, row37)
+totaltime <- rbind(totaltime, row40)
 totaltime <- totaltime %>% arrange(episode)
 write.csv(totaltime, "data/totaltime.csv", row.names=F, na="")
 
@@ -121,3 +121,12 @@ cloneswap <- ob %>% group_by(character, charas) %>%
 # Headline numbers for clone tracker
 sum(totaltime$epmin)
 sum(totaltime$tmasmin)
+
+# Time by season
+timebyseason <- ob %>% mutate(season = ifelse(episode <=10, 1,
+                                              ifelse(episode <= 20, 2,
+                                                     ifelse(episode<=30, 3,
+                                                            4)))) %>%
+  group_by(season, character) %>%
+  summarize(minutes = sum(minutes)) %>%
+  arrange(season, desc(minutes))
