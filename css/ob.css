@@ -40,7 +40,7 @@ p.copyright {
 .navbar-brand,
 .title {
     color: #fff !important;
-    font-weight: 100;
+    font-weight: 300;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -82,7 +82,7 @@ footer {
 }
 
 footer h3 {
-    font-weight: 100;
+    font-weight: 300;
 }
 
 @media(max-width:767px) {
