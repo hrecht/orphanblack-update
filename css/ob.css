@@ -5,7 +5,7 @@ html {
 }
 
 body {
-    font-family: "Lato", Arial, "Helvetica Neue", Helvetica,  sans-serif;
+    font-family: Lato, Arial, sans-serif !important;
     color: #333;
     font-size: 14px;
 }
