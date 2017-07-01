@@ -207,7 +207,7 @@ function overlap() {
         .attr("y2", function (d) {
             return y(d);
         })
-        .attr("x1", -35)
+        .attr("x1", -42)
         .attr("x2", function (d) {
             return x(44);
         });
@@ -217,32 +217,27 @@ function overlap() {
         .enter()
         .append("g");
 
-    seasonlab.append("text")
-        .attr("class", function () {
-            if (isMobile) {
-                return "label-small";
-            } else {
-                return "seasonlabel";
-            }
-        })
-        .attr("x", -35)
-        .attr("y", function (d, i) {
-            if (d == 5) {
-                return y(42) + y.rangeBand();
-            } else {
-                return y(10 * i + 5) + y.rangeBand();
-            }
-        })
-        .attr("text-anchor", "end")
-        .text(function (d) {
-            if (d == 1) {
-                return "Season " + d;
-            } else {
-                return d;
-            }
-        })
-
     if (!isMobile) {
+        seasonlab.append("text")
+            .attr("class", function () {
+                if (isMobile) {
+                    return "label-small";
+                } else {
+                    return "seasonlabel";
+                }
+            })
+            .attr("x", -35)
+            .attr("y", function (d, i) {
+                return y(10 * i + 1) + y.rangeBand() + 4;
+            })
+            .attr("text-anchor", "end")
+            .text(function (d) {
+                if (d == 1) {
+                    return "Season " + d;
+                } else {
+                    return d;
+                }
+            })
 
         svg.append("g")
             .append("text")
@@ -330,6 +325,27 @@ function overlap() {
                 return CHARACTERS[i];
             });
     } else {
+
+        seasonlab.append("text")
+            .attr("class", function () {
+                if (isMobile) {
+                    return "label-small";
+                } else {
+                    return "seasonlabel";
+                }
+            })
+            .attr("x", -8)
+            .attr("y", function (d, i) {
+                return y(10 * i + 1) + y.rangeBand() + 4;
+            })
+            .attr("text-anchor", "end")
+            .text(function (d) {
+                if (d == 1) {
+                    return "Season " + d;
+                } else {
+                    return d;
+                }
+            })
 
         //no mouse events
         bars.append("rect")
@@ -505,14 +521,10 @@ function linechart() {
         .attr("class", "seasonlabel");
 
     seasonlab.append("text")
-        .attr("text-anchor", "middle")
+        .attr("text-anchor", "start")
         .attr("y", height + 20)
         .attr("x", function (d, i) {
-            if (d == 5) {
-                return x(42)
-            } else {
-                return x(10 * i + 5);
-            }
+            return x(10 * i + 1);
         })
         .text(function (d) {
             if (d == 1) {
@@ -847,11 +859,7 @@ function ganttcharacters() {
     seasonlab.append("text")
         .attr("x", -8)
         .attr("y", function (d, i) {
-            if (d == 5) {
-                return y(42) + y.rangeBand() + 6;
-            } else {
-                return y(10 * i + 5) + y.rangeBand();
-            }
+            return y(10 * i + 1) + y.rangeBand() + 12;
         })
         .attr("text-anchor", "end")
         .text(function (d) {
