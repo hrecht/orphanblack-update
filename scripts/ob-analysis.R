@@ -13,7 +13,7 @@ totaltime <- read.csv("data/totaltime.csv", header=T, stringsAsFactors=F)
 # Character metadata - origin, status, etc
 charmeta <- read.csv("data/charactermeta.csv", header=T, stringsAsFactors=F)
 # Episode titles
-titles <- read_excel("data/obs4.xlsx", sheet="titles")
+titles <- read_excel("data/obs5.xlsx", sheet="titles")
 
 ########################################################################################################
 # Format episode-level character time data
@@ -71,16 +71,17 @@ makeEpisodeRow <- function(dt) {
 # Add new episodes to full series dataset, total time dataset
 ########################################################################################################
 
-ep40 <- read_excel("data/obs4.xlsx", sheet="ep40")
-ep40 <- formatEpisode(ep40)
-row40 <- makeEpisodeRow(ep40)
-#ep39 <- ep39 %>% filter(character != "END")
+newep <- read_excel("data/obs5.xlsx", sheet="ep42")
+newep <- formatEpisode(newep)
+newrow <- makeEpisodeRow(newep)
+# If the end of the episode is clone-less remove that row
+newep <- newep %>% filter(character != "END")
 
-ob <- rbind(ob, ep40)
+ob <- rbind(ob, newep)
 ob <- ob %>% arrange(episode, startsec)
 write.csv(ob, "data/obtimes.csv", row.names=F, na="")
 
-totaltime <- rbind(totaltime, row40)
+totaltime <- rbind(totaltime, newrow)
 totaltime <- totaltime %>% arrange(episode)
 write.csv(totaltime, "data/totaltime.csv", row.names=F, na="")
 
@@ -94,7 +95,7 @@ timebyep <- ob %>% group_by(episode, character) %>%
 temp <- ob %>% group_by(episode) %>%
   summarize(minutes = sum(minutes)) %>% 
   mutate(character = "All Tatiana Maslany Clones")
-timebyep <- rbind(timebyep, temp)
+timebyep <- bind_rows(timebyep, temp)
 rm(temp)
 
 write.csv(timebyep, file="data/chartimebyep.csv", row.names=F, na="")
@@ -126,7 +127,8 @@ sum(totaltime$tmasmin)
 timebyseason <- ob %>% mutate(season = ifelse(episode <=10, 1,
                                               ifelse(episode <= 20, 2,
                                                      ifelse(episode<=30, 3,
-                                                            4)))) %>%
+                                                            ifelse(episode<=40, 4,
+                                                                   5))))) %>%
   group_by(season, character) %>%
   summarize(minutes = sum(minutes)) %>%
   arrange(season, desc(minutes))

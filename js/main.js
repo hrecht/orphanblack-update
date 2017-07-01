@@ -8,7 +8,7 @@ var $overlap = $('#overlap');
 var $ganttSarah = $('#ganttSarah');
 var $linechart = $('#linechart');
 var formatNum = d3.format(',.0f');
-var SEASONS = [1, 2, 3, 4];
+var SEASONS = [1, 2, 3, 4, 5];
 var CHARACTERS = ["Sarah", "Alison", "Cosima", "Helena", "Rachel", "Beth", "MK", "Krystal", "Katja", "Tony"];
 var CHARACTERS_GANTT = ["Sarah", "Alison", "Cosima", "Helena", "Rachel", "Beth", "MK", "Krystal"];
 var LINELABELS = ["Episode length", "Tatiana Maslany screen time"];
@@ -91,7 +91,7 @@ function overlap() {
     });
 
     if ($overlap.width() >= MOBILE_THRESHOLD) {
-        var chart_aspect_height = 0.6;
+        var chart_aspect_height = 0.65;
         var margin = {
                 top: 50,
                 right: 20,
@@ -195,7 +195,7 @@ function overlap() {
         });
 
     var seasonline = svg.selectAll(".seasonline")
-        .data([11, 21, 31])
+        .data([11, 21, 31, 41])
         .enter()
         .append("g")
         .attr("class", "seasonline");
@@ -222,15 +222,24 @@ function overlap() {
             if (isMobile) {
                 return "label-small";
             } else {
-                return "seasonlab";
+                return "seasonlabel";
             }
         })
-        .attr("x", -margin.left)
+        .attr("x", -35)
         .attr("y", function (d, i) {
-            return y(10 * i + 5) + y.rangeBand();
+            if (d == 5) {
+                return y(42) + y.rangeBand();
+            } else {
+                return y(10 * i + 5) + y.rangeBand();
+            }
         })
+        .attr("text-anchor", "end")
         .text(function (d) {
-            return "Season " + d;
+            if (d == 1) {
+                return "Season " + d;
+            } else {
+                return d;
+            }
         })
 
     if (!isMobile) {
@@ -499,14 +508,22 @@ function linechart() {
         .attr("text-anchor", "middle")
         .attr("y", height + 20)
         .attr("x", function (d, i) {
-            return x(10 * i + 5);
+            if (d == 5) {
+                return x(42)
+            } else {
+                return x(10 * i + 5);
+            }
         })
         .text(function (d) {
-            return "Season " + d;
+            if (d == 1) {
+                return "Season " + d;
+            } else {
+                return d;
+            }
         })
 
     var seasonline = svg.selectAll(".seasonline")
-        .data([10.5, 20.5, 30.5])
+        .data([10.5, 20.5, 30.5, 40.5])
         .enter()
         .append("g")
         .attr("class", "seasonlight");
@@ -589,7 +606,7 @@ function linechart() {
         .attr("class", "dot");
 
     dots.append("circle")
-        .attr("r", 3)
+        .attr("r", 4)
         .attr("cx", function (d) {
             return x(d.episode);
         })
@@ -641,7 +658,7 @@ function linechart() {
             .style("display", "none");
 
         focus.append("circle")
-            .attr("r", 4.5);
+            .attr("r", 5);
 
         focus.append("text")
             .attr("id", "tipep")
@@ -730,7 +747,7 @@ function ganttcharacters() {
         })
         .entries(data);
 
-    var chart_aspect_height = 0.75;
+    var chart_aspect_height = 0.8;
     var margin = {
         top: 5,
         right: 25,
@@ -804,7 +821,7 @@ function ganttcharacters() {
         .call(xAxis);
 
     var seasonline = svg.selectAll(".seasonline")
-        .data([11, 21, 31])
+        .data([11, 21, 31, 41])
         .enter()
         .append("g")
         .attr("class", "seasonline");
@@ -816,7 +833,7 @@ function ganttcharacters() {
         .attr("y2", function (d) {
             return y(d);
         })
-        .attr("x1", -margin.left)
+        .attr("x1", -20)
         .attr("x2", function (d) {
             return x(44);
         });
@@ -828,12 +845,21 @@ function ganttcharacters() {
         .attr("class", "label-small");
 
     seasonlab.append("text")
-        .attr("x", -margin.left)
+        .attr("x", -8)
         .attr("y", function (d, i) {
-            return y(10 * i + 5) + y.rangeBand();
+            if (d == 5) {
+                return y(42) + y.rangeBand() + 6;
+            } else {
+                return y(10 * i + 5) + y.rangeBand();
+            }
         })
+        .attr("text-anchor", "end")
         .text(function (d) {
-            return "Season " + d;
+            if (d == 1) {
+                return "Season " + d;
+            } else {
+                return d;
+            }
         })
 
     svg.append("g")
