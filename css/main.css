@@ -39,7 +39,8 @@ img.fallback {
 /* character blocks */
 
 .nospace {
-    padding-left: 0 !important;
+    padding-left: 0px; !important;
+    padding-right: 0px;
     left: 0;
     margin-left: 0;
 }

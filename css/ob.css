@@ -100,4 +100,11 @@ footer h3 {
     footer {
         padding-top: 1em;
     }
+    .col-md-7,
+    .col-sm-8,
+    .col-md-8
+    .col-sm-12{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
