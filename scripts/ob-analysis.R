@@ -7,13 +7,13 @@ library("dplyr")
 library("tidyr")
 
 # Main data: 1 row per character appearance
-ob <- read.csv("data/obtimes.csv", header=T, stringsAsFactors=F)
+ob <- read.csv("data/original/obtimes.csv", header=T, stringsAsFactors=F)
 # Episode data - length, screen time, percent
 totaltime <- read.csv("data/totaltime.csv", header=T, stringsAsFactors=F)
 # Character metadata - origin, status, etc
-charmeta <- read.csv("data/charactermeta.csv", header=T, stringsAsFactors=F)
+charmeta <- read.csv("data/original/charactermeta.csv", header=T, stringsAsFactors=F)
 # Episode titles
-titles <- read_excel("data/obs5.xlsx", sheet="titles")
+titles <- read_excel("data/original/obs5.xlsx", sheet="titles")
 
 ########################################################################################################
 # Format episode-level character time data
@@ -71,7 +71,7 @@ makeEpisodeRow <- function(dt) {
 # Add new episodes to full series dataset, total time dataset
 ########################################################################################################
 
-newep <- read_excel("data/obs5.xlsx", sheet="ep43")
+newep <- read_excel("data/original/obs5.xlsx", sheet="ep43")
 newep <- formatEpisode(newep)
 newrow <- makeEpisodeRow(newep)
 # If the end of the episode is clone-less remove that row
@@ -79,7 +79,11 @@ newep <- newep %>% filter(character != "END")
 
 ob <- rbind(ob, newep)
 ob <- ob %>% arrange(episode, startsec)
-write.csv(ob, "data/obtimes.csv", row.names=F, na="")
+write.csv(ob, "data/original/obtimes.csv", row.names=F, na="")
+
+# Minimal for graphic
+ob_min <- ob %>% select(episode, character, startmin, stopmin)
+write.csv(ob_min, "data/obtimes.csv", row.names=F, na="")
 
 totaltime <- rbind(totaltime, newrow)
 totaltime <- totaltime %>% arrange(episode)

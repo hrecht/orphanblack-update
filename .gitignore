@@ -4,3 +4,4 @@ img/headshots/
 *.Rhistory
 .Rproj.user
 *.xlsx
+data/original/
