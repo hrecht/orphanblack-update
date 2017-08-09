@@ -17,6 +17,18 @@ img.fallback {
     height: auto;
 }
 
+.imggif {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.caption {
+    margin-bottom: 15px;
+    font-size: 13px;
+    font-style: italic;
+    text-align: center;
+}
 
 /* headline numbers */
 
