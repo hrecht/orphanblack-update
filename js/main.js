@@ -96,7 +96,7 @@ function overlap() {
                 top: 50,
                 right: 20,
                 bottom: 40,
-                left: 90
+                left: 65
             },
             numticks = 9,
             isMobile = false;
@@ -109,7 +109,7 @@ function overlap() {
         }
         var margin = {
                 top: 70,
-                right: 20,
+                right: 10,
                 bottom: 40,
                 left: 60
             },
@@ -150,13 +150,7 @@ function overlap() {
     var yAxis = d3.svg.axis()
         .scale(y)
         .tickSize(0)
-        .tickFormat(function (d) {
-            if (isMobile) {
-                return "";
-            } else {
-                return d;
-            }
-        })
+        .tickFormat("")
         .orient("left");
 
     var gx = svg.append("g")
@@ -226,9 +220,9 @@ function overlap() {
                     return "seasonlabel";
                 }
             })
-            .attr("x", -35)
+            .attr("x", -8)
             .attr("y", function (d, i) {
-                return y(10 * i + 1) + y.rangeBand() + 4;
+                return y(6 + (i * 10));
             })
             .attr("text-anchor", "end")
             .text(function (d) {
@@ -239,14 +233,14 @@ function overlap() {
                 }
             })
 
-        svg.append("g")
+        /*svg.append("g")
             .append("text")
             .attr("class", "axistitle")
             .attr("x", -15)
             .attr("y", -10)
             .text(function (d) {
                 return "Episode";
-            });
+            });*/
 
         //bars with mouseover
         bars.append("rect")
@@ -336,7 +330,7 @@ function overlap() {
             })
             .attr("x", -8)
             .attr("y", function (d, i) {
-                return y(10 * i + 1) + y.rangeBand() + 4;
+                return y(6 + (i * 10));
             })
             .attr("text-anchor", "end")
             .text(function (d) {
@@ -506,10 +500,10 @@ function linechart() {
         .attr("class", "seasonlabel");
 
     seasonlab.append("text")
-        .attr("text-anchor", "start")
+        .attr("text-anchor", "middle")
         .attr("y", height + 20)
         .attr("x", function (d, i) {
-            return x(10 * i + 1) + 1;
+            return x(5 + (i * 10)) + x.rangeBand()/2;
         })
         .text(function (d) {
             if (d == 1) {
@@ -695,7 +689,7 @@ function ganttcharacters() {
     seasonlab.append("text")
         .attr("x", -8)
         .attr("y", function (d, i) {
-            return y(10 * i + 1) + y.rangeBand() + 12;
+            return y(6 + (i * 10));
         })
         .attr("text-anchor", "end")
         .text(function (d) {
