@@ -139,7 +139,7 @@ tr {
 
 .axis,
 .axis-show {
-    font-size: 11px;
+    font-size: 12px;
     color: #333;
 }
 
@@ -179,12 +179,12 @@ tr {
 }
 
 .seasonlabel {
-    font-size: 14px;
+    font-size: 12px;
     /*font-weight: 700;*/
 }
 
 .label-small {
-    font-size: 13px;
+    font-size: 12px;
 }
 
 

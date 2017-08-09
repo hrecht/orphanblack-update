@@ -488,7 +488,7 @@ function linechart() {
         .append("text")
         .attr("class", "axistitle")
         .attr("x", -20)
-        .attr("y", 0)
+        .attr("y", -5)
         .text(function (d) {
             return "Minutes";
         });
@@ -706,7 +706,7 @@ function ganttcharacters() {
         .attr("x", function (d) {
             return x(0);
         })
-        .attr("y", height + 32)
+        .attr("y", height + 34)
         .text(function (d) {
             return "Timeline of episode (minutes)";
         });
