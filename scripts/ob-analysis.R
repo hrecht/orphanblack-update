@@ -71,7 +71,7 @@ makeEpisodeRow <- function(dt) {
 # Add new episodes to full series dataset, total time dataset
 ########################################################################################################
 
-newep <- read_excel("data/original/obs5.xlsx", sheet="ep43")
+newep <- read_excel("data/original/obs5.xlsx", sheet="ep47")
 newep <- formatEpisode(newep)
 newrow <- makeEpisodeRow(newep)
 # If the end of the episode is clone-less remove that row
@@ -102,7 +102,7 @@ temp <- ob %>% group_by(episode) %>%
 timebyep <- bind_rows(timebyep, temp)
 rm(temp)
 
-write.csv(timebyep, file="data/chartimebyep.csv", row.names=F, na="")
+write.csv(timebyep, file="data/original/chartimebyep.csv", row.names=F, na="")
 
 #Data for table: total time by character, # of episodes, cloneswaps
 chartable <- timebyep %>% group_by(character) %>%

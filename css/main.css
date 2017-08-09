@@ -86,6 +86,14 @@ img.headshot {
     text-transform: uppercase;
 }
 
+#totmin {
+    border-bottom: 2px solid #000000;
+}
+
+#tottmas {
+    background-color: #55847f;
+    color: #ffffff;
+}
 
 /* table */
 
@@ -211,8 +219,22 @@ tr {
 .chartline {
     fill: none;
     stroke-width: 2px;
+    stroke: #000000;
+    shape-rendering: crispEdges;
 }
 
+.seasonbar {
+    fill: #55847f;
+}
+
+.tooltip {
+    padding: 4px;
+    background: rgba(255, 255, 255, 0.7);
+    color: #000;
+    border: 1px solid #aaa;
+    pointer-events: none;
+    font-size: 12px;
+}
 
 /* gantts */
 
