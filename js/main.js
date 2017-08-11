@@ -233,14 +233,14 @@ function overlap() {
                 }
             })
 
-        /*svg.append("g")
+        svg.append("g")
             .append("text")
             .attr("class", "axistitle")
-            .attr("x", -15)
+            .attr("x", 0)
             .attr("y", -10)
             .text(function (d) {
-                return "Episode";
-            });*/
+                return "Hover to reveal identities";
+            });
 
         //bars with mouseover
         bars.append("rect")

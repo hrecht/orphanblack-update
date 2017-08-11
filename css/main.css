@@ -10,6 +10,7 @@ hr {
 
 #overlap {
     padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 img.fallback {
@@ -256,6 +257,12 @@ tr {
 
 .overlapbar {
     fill: #1B3536;
+}
+
+@media(min-width:1000px) {
+    .overlapbar {
+        cursor: pointer;
+    }
 }
 
 .overlapbar .selected {

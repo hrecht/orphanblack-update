@@ -136,3 +136,19 @@ timebyseason <- ob %>% mutate(season = ifelse(episode <=10, 1,
   group_by(season, character) %>%
   summarize(minutes = sum(minutes)) %>%
   arrange(season, desc(minutes))
+
+# Characters by episode
+charbyep <- timebyep %>% filter(character != "All Tatiana Maslany Clones") %>%
+  group_by(episode) %>%
+  summarize(clones = n())
+table(charbyep$clones)
+
+library(ggplot2)
+seasons <- ggplot(timebyseason, aes(x = desc(season), y = minutes, group = character, fill = character)) +
+  geom_bar(stat = "identity") +
+  coord_flip()
+seasons
+
+bars <- ggplot(chartable, aes(x = character, y = minutes)) +
+  geom_bar(stat = "identity")
+bars
