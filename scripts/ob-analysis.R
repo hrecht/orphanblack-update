@@ -71,7 +71,7 @@ makeEpisodeRow <- function(dt) {
 # Add new episodes to full series dataset, total time dataset
 ########################################################################################################
 
-newep <- read_excel("data/original/obs5.xlsx", sheet="ep47")
+newep <- read_excel("data/original/obs5.xlsx", sheet="ep49")
 newep <- formatEpisode(newep)
 newrow <- makeEpisodeRow(newep)
 # If the end of the episode is clone-less remove that row

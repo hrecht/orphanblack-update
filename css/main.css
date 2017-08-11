@@ -43,6 +43,10 @@ img.fallback {
     display: inline-block;
 }
 
+.blocklegend {
+    display: inline-block;
+}
+
 #ganttSarah {
     width: 100%;
 }
@@ -98,11 +102,11 @@ img.headshot {
     text-transform: uppercase;
 }
 
-#totmin {
+.epmin {
     border-bottom: 2px solid #000000;
 }
 
-#tottmas {
+.tmasmin {
     background-color: #55847f;
     color: #ffffff;
 }

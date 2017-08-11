@@ -35,9 +35,9 @@ function datatext() {
         return d.tmasmin;
     });
 
-    d3.select("#toteps").html(eps + " episodes");
-    d3.select("#totmin").html(formatNum(totmin) + " minutes");
-    d3.select("#tottmas").html(formatNum(tottmas) + " minutes");
+    d3.select("#toteps").html(eps);
+    d3.select("#totmin").html(formatNum(totmin));
+    d3.select("#tottmas").html(formatNum(tottmas));
 
     //individual character tables
     for (var i = 0; i < CHARACTERS.length; i++) {
@@ -566,6 +566,13 @@ function linechart() {
         .attr("class", "chartline")
         .attr("d", line);
 
+    //need to manually add last line segment
+    svg.append("line")
+        .attr("x1", x(49))
+        .attr("x2", x(49) + x.rangeBand())
+        .attr("y1", y(40.1))
+        .attr("y2", y(40.1))
+        .attr("class", "chartline");
 }
 
 function ganttcharacters() {
