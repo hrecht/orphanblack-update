@@ -71,7 +71,7 @@ makeEpisodeRow <- function(dt) {
 # Add new episodes to full series dataset, total time dataset
 ########################################################################################################
 
-newep <- read_excel("data/original/obs5.xlsx", sheet="ep49")
+newep <- read_excel("data/original/obs5.xlsx", sheet="ep50")
 newep <- formatEpisode(newep)
 newrow <- makeEpisodeRow(newep)
 # If the end of the episode is clone-less remove that row
@@ -143,12 +143,19 @@ charbyep <- timebyep %>% filter(character != "All Tatiana Maslany Clones") %>%
   summarize(clones = n())
 table(charbyep$clones)
 
+timebyep2 <- timebyep %>% filter(character != "All Tatiana Maslany Clones")
+
 library(ggplot2)
 seasons <- ggplot(timebyseason, aes(x = desc(season), y = minutes, group = character, fill = character)) +
   geom_bar(stat = "identity") +
   coord_flip()
 seasons
 
-bars <- ggplot(chartable, aes(x = character, y = minutes)) +
+episodes <- ggplot(timebyep2, aes(x = episode, y = minutes, group = character, fill = character)) +
+  geom_bar(stat = "identity")
+episodes
+
+mainchar <- chartable %>% filter(character!= "All Tatiana Maslany Clones" & minutes > 1)
+bars <- ggplot(mainchar, aes(x = character, y = minutes)) +
   geom_bar(stat = "identity")
 bars

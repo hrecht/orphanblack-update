@@ -19,10 +19,11 @@ function formatXAxis(d) {
     return d === 40 ? s + " minutes" : s;
 }
 
-//body text straight from data;
+//body text straight from data
 function datatext() {
 
-    //top-line numbers
+    //top-line numbers - used before series finale
+    //after series finale, these stats became hardcoded html
     var eps = d3.max(data_total, function (d) {
         return d.episode;
     });
@@ -35,9 +36,9 @@ function datatext() {
         return d.tmasmin;
     });
 
-    d3.select("#toteps").html(eps);
-    d3.select("#totmin").html(formatNum(totmin));
-    d3.select("#tottmas").html(formatNum(tottmas));
+    //d3.select("#toteps").html(eps);
+    //d3.select("#totmin").html(formatNum(totmin));
+    //d3.select("#tottmas").html(formatNum(tottmas));
 
     //individual character tables
     for (var i = 0; i < CHARACTERS.length; i++) {
@@ -568,10 +569,10 @@ function linechart() {
 
     //need to manually add last line segment
     svg.append("line")
-        .attr("x1", x(49))
-        .attr("x2", x(49) + x.rangeBand())
-        .attr("y1", y(40.1))
-        .attr("y2", y(40.1))
+        .attr("x1", x(50) - 2)
+        .attr("x2", x(50) + x.rangeBand())
+        .attr("y1", y(42.48333))
+        .attr("y2", y(42.48333))
         .attr("class", "chartline");
 }
 
