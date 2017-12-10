@@ -454,11 +454,19 @@ function linechart() {
         })])
         .range([height, 0])
 
-    var x = d3.scale.ordinal()
-        .rangeRoundBands([0, width], 0.05)
-        .domain(data.map(function (d) {
-            return d.episode;
-        }));
+    if ($linechart.width() >= 450) {
+        var x = d3.scale.ordinal()
+            .rangeRoundBands([0, width], 0.05)
+            .domain(data.map(function (d) {
+                return d.episode;
+            }));
+    } else {
+        var x = d3.scale.ordinal()
+            .rangeBands([0, width], 0)
+            .domain(data.map(function (d) {
+                return d.episode;
+            }));
+    }
 
     var xAxis = d3.svg.axis()
         .scale(x)
@@ -500,19 +508,41 @@ function linechart() {
         .append("g")
         .attr("class", "seasonlabel");
 
-    seasonlab.append("text")
-        .attr("text-anchor", "middle")
-        .attr("y", height + 20)
-        .attr("x", function (d, i) {
-            return x(5 + (i * 10)) + x.rangeBand()/2;
-        })
-        .text(function (d) {
-            if (d == 1) {
-                return "Season " + d;
-            } else {
+    // x axis labels
+    if ($linechart.width() >= 450) {
+        seasonlab.append("text")
+            .attr("text-anchor", "middle")
+            .attr("y", height + 20)
+            .attr("x", function (d, i) {
+                return x(5 + (i * 10)) + x.rangeBand() / 2;
+            })
+            .text(function (d) {
+                if (d == 1) {
+                    return "Season " + d;
+                } else {
+                    return d;
+                }
+            })
+    } else {
+        svg.append("g")
+            .append("text")
+            .attr("class", "axistitle")
+            .attr("x", 0)
+            .attr("y", height + margin.bottom)
+            .text(function (d) {
+                return "Season";
+            });
+
+        seasonlab.append("text")
+            .attr("text-anchor", "middle")
+            .attr("y", height + 20)
+            .attr("x", function (d, i) {
+                return x(5 + (i * 10)) + x.rangeBand() / 2;
+            })
+            .text(function (d) {
                 return d;
-            }
-        })
+            })
+    }
 
     var bars = svg.selectAll(".bar")
         .data(data_total)
